@@ -6,7 +6,11 @@
 </head>
 <body>
 <h1>
+<<<<<<< HEAD
 	Hello world!  Submarine team fighting!
+=======
+	큰엄마[좃카상] 
+>>>>>>> branch 'kimdaehoon' of https://github.com/Bubanchyo/Team-Submarine.git
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
