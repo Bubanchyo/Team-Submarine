@@ -27,6 +27,7 @@
 <!-- Custom styles for this template -->
 <link href="./resources/css/grayscale.min.css" rel="stylesheet">
 
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -38,36 +39,48 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+  
+
 
 </head>
 
 <body id="page-top">
-
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
-		id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Start
-				Bootstrap</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-
-				<i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#about">About</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#projects">Projects</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#signup">Contact</a></li>
-				</ul>
-			</div>
+   <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
+            </li>
+          </ul>
+        </div>
+        	<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">wanderlust_01</a>
+			<a href="logIn" class="btn btn-primary js-scroll-trigger">LOG IN</a>
+			<a href="register" class="btn btn-primary js-scroll-trigger">REGISTER</a>	
 		</div>
-	</nav>
+      </div>
+    </nav>
+	 
+
+	
+
 
 	<!-- Header -->
 	<header class="masthead">
