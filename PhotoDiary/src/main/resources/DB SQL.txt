@@ -1,0 +1,74 @@
+﻿member
+memberno number pk
+useremail unique not null varchar2
+username not null varchar2
+userpassword not null varchar2
+regdate default sysdate date
+logdate default sysdate date 
+approvalstatus default false varchar2
+approvalkey number
+nickname varchar2
+gender varchar2
+
+
+album
+albumno number pk
+memberno number fk
+title varchar2
+thumbnail varchar2
+
+photodetail
+photono number pk
+albumno number fk
+content varchar2
+imgsrc varchar2
+regdate default sysdate date
+privacy varchar2 
+(동적쿼리로 null일 경우 그냥 비움)
+lat varchar2(100) (좌표)
+lng varchar2(100) (좌표)
+
+
+(보류)
+reply
+replyseq number pk
+
+
+
+
+--------------------------------------sql-----------------------------------
+
+drop table member purge;
+drop table album purge;
+drop table photodetail purge;
+
+
+
+create table member (
+memberno number primary key,
+useremail varchar2(200) unique not null,
+username varchar2(50) not null,
+userpassword varchar2(50) not null,
+regdate date default sysdate,
+logdate date default sysdate,
+approvalstatus varchar2(200) default 'false',
+approvalkey number,
+nickname varchar2(200),
+gender varchar2(50)
+)
+
+create table album (
+ albumno number primary key,
+ memberno number references member,
+ title varchar2(200),
+ thumbnail varchar2(200)
+)
+
+create table photodetail (
+ photono number primary key,
+ albumno number references album,
+ content varchar2(2000), imgsrc varchar2(200),
+ regdate date default sysdate, privacy varchar2(50),
+ lat varchar2(200),
+ lng varchar2(200)
+)

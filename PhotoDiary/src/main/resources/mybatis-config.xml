@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="t4.submarine.com.VO.Member" alias="Member"/>
+		<typeAlias type="t4.submarine.com.VO.Album" alias="Album"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="Mappers/memberMapper.xml"/>
+		<mapper resource="Mappers/albumMapper.xml"/>
+	</mappers>
+</configuration>
