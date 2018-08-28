@@ -16,10 +16,10 @@
     <title>Grayscale - Start Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor1/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="./resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor1/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -49,11 +49,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           
-          	<c:if test="${sessionScope.username != null}">
-          	<li class="nav-item">
-				 <a class="nav-link js-scroll-trigger" href="intro">My Journey Diary</a>
-            </li>
-          	</c:if>
+          	
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
@@ -84,10 +80,10 @@
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
           <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-          <c:if test="${sessionScope.message == null}">
+          <c:if test="${sessionScope.useremail == null}">
           		<a href="goToIntro" class="btn btn-primary js-scroll-trigger">Journey Diary</a>
           </c:if>
-          <c:if test="${sessionScope.message != null}">
+          <c:if test="${sessionScope.useremail != null}">
           		<a href="journeyDiary?useremail=${sessionScope.useremail}" class="btn btn-primary js-scroll-trigger">My Journey Diary</a>
           </c:if>
          
@@ -132,7 +128,7 @@
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
           <div class="col-xl-8 col-lg-7">
-            <img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.jpg" alt="">
+            <img class="img-fluid mb-3 mb-lg-0" src="./resources/img/bg-masthead.jpg" alt="">
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="featured-text text-center text-lg-left">
@@ -265,11 +261,11 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="./resources/vendor/jquery/jquery.min.js"></script>
-    <script src="./resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./resources/vendor/vendor1/jquery/jquery.min.js"></script>
+    <script src="./resources/vendor/vendor1/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="./resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./resources/vendor/vendor1/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="./resources/js/grayscale.min.js"></script>

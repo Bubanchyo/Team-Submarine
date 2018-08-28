@@ -24,12 +24,20 @@ public class AlbumController {
 	@Autowired
 	SqlSession sqlSession;
 	
-	 //Register form 불러오기 
+	 //[My Journey Diary] 클릭 -> albumList불러오기 
 	@RequestMapping(value = "/journeyDiary", method = RequestMethod.GET)
-	public String goToJourneyDiary() {
+	public String journeyDiary() {
 
 		
 		return "album/albumList";
+	}
+	
+	 //Register form 불러오기 
+	@RequestMapping(value = "/albumDetails", method = RequestMethod.GET)
+	public String albumDetails() {
+
+		
+		return "album/albumDetails";
 	}
 
 
