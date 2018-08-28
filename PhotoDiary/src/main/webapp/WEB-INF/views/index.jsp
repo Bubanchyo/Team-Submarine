@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
+<html>
 
   <head>
 
@@ -36,13 +41,19 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">wanderlust</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+          
+          	<c:if test="${sessionScope.username != null}">
+          	<li class="nav-item">
+				 <a class="nav-link js-scroll-trigger" href="intro">My Journey Diary</a>
+            </li>
+          	</c:if>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
@@ -62,6 +73,10 @@
         </div>
       </div>
     </nav>
+    
+
+   
+ 
 
     <!-- Header -->
     <header class="masthead">
@@ -69,7 +84,13 @@
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
           <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-          <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+          <c:if test="${sessionScope.message == null}">
+          		<a href="goToIntro" class="btn btn-primary js-scroll-trigger">Journey Diary</a>
+          </c:if>
+          <c:if test="${sessionScope.message != null}">
+          		<a href="journeyDiary?useremail=${sessionScope.useremail}" class="btn btn-primary js-scroll-trigger">My Journey Diary</a>
+          </c:if>
+         
         </div>
       </div>
     </header>

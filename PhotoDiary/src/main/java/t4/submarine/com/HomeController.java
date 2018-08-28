@@ -44,4 +44,12 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/goToIntro", method = RequestMethod.GET)
+	public String goToIntro() {
+		
+		
+
+		return "intro";
+	}
+	
 }
