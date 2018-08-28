@@ -4,4 +4,52 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="t4.submarine.com.DAO.MemberMapper">
+
+
+
+<!-- 회원가입 처리 SQL -->
+
+
+	
+	<!-- 이메일 중복 검사 -->
+	<select id="checkEmail" parameterType="String" resultType="int">
+		SELECT count(*) from member where useremail = #{useremail}
+	</select>
+	
+	<insert id="registerMember" parameterType="Member">
+		INSERT INTO member
+		(
+			memberno
+		  , useremail
+		  , username
+		  , userpassword
+		  , regdate
+		  , logdate
+		)
+		VALUES
+		(
+			member_seq.nextVal
+		  , #{useremail}
+		  , #{username}
+		  , #{userpassword}
+		  , sysdate
+		  , sysdate
+		)
+	</insert>
+	
+    <select id="selectOne" parameterType="Member" resultType="Member">
+		SELECT memberno
+		  , useremail
+		  , username
+		FROM member
+		WHERE useremail= #{useremail}
+		<if test="userpassword!=null">
+		and userpassword = #{userpassword}
+		</if>
+	</select>
+	
+
 </mapper>
+
+
+

@@ -1,39 +1,101 @@
 package t4.submarine.com.controllers;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import t4.submarine.com.DAO.MemberMapper;
+import t4.submarine.com.VO.Member;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class MemberController {
-	/**
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	@Autowired
+	SqlSession sqlSession;
+	
+	 //Register form 불러오기 
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String registerForm() {
+
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "index";
+		return "member/register";
 	}
-	*/
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String register(Member member, String confirmUserpassword, Model model) {
+		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+		
+		int result = 0;
+		result = memberMapper.registerMember(member);
+		
+		if(result == 1) {
+			model.addAttribute("message", "Thanks for registering.");
+		}
+		else {
+			model.addAttribute("message", "Sorry for that the registration failed.");
+		}
+		
+		return "member/afterRegistration";
+	}
+
+	
+	@RequestMapping(value = "/checkEmail", method = RequestMethod.POST)
+	public @ResponseBody String checkEmail(@RequestParam("useremail") String useremail, HttpServletResponse response) throws Exception{
+			System.out.println("ajax data useremail???" + useremail);
+			
+			MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+			int result = 0;
+			result = memberMapper.checkEmail(useremail);
+			System.out.println("email check result: " + result);
+			
+			if(result == 1) return "1";
+			else return "0";
+
+	}
+	
+	 //log In form 불러오기 
+	@RequestMapping(value = "/logIn", method = RequestMethod.GET)
+	public String logInForm() {
+
+		
+		return "member/logIn";
+	}
+	
+	 //log In
+		@RequestMapping(value = "/logIn", method = RequestMethod.POST)
+		public String logIn(String useremail, String userpassword, HttpSession session, Model model) {
+			
+			System.out.println("login 정보???" + useremail + "&&&" + userpassword);
+			Member member = new Member();
+			member.setUseremail(useremail);
+			member.setUserpassword(userpassword);
+			MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+			Member m = memberMapper.selectOne(member);
+			
+			System.out.println("member DB에서 받아옴??" + m);
+			
+			if(m != null) {
+				session.setAttribute("useremail", m.getUseremail());
+				session.setAttribute("username", m.getUsername());
+				return "redirect:/";
+			}else {
+				model.addAttribute("message", "해당 아이디나 비밀번호가 없습니다.");
+				return "index";
+			}
+			
+		}
+
+	
+	
 }
