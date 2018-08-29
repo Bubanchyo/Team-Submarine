@@ -42,10 +42,10 @@
     <link href="./resources/css/stylish-portfolio.min.css" rel="stylesheet">
     <style type="text/css">
     	#nav-bottom{
-    		position:absolute; 
+    		position:fixed; 
     		width:100%;
-    		bottom:0;
-    		height:50px;
+    		bottom: 0;
+    		height:70px;
     		background-color: #f3f3f3; 
     	}
     </style>
@@ -111,10 +111,11 @@
       </div>
     </section>
  
-	<div>
-		<a href="createAlbum" class="btn btn-primary js-scroll-trigger">CREATE ALBUM</a>
+ 	<section>
+	<div id="nav-bottom">
+		<a href="createAlbum" class="btn btn-primary js-scroll-trigger" align="center">CREATE ALBUM</a>
 	</div>
-
+</section>
 
    
 

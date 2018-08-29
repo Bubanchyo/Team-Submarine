@@ -22,9 +22,14 @@
     <link href="./resources/vendor/vendor2/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="./resources/vendor/vendor3/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
     <link href="./resources/css/grayscale.min.css" rel="stylesheet">
+    <link href="./resources/css/creative.min.css" rel="stylesheet">
+    
     <!-- Latest compiled and minified CSS -->
 
 	<!-- jQuery library -->
@@ -32,6 +37,10 @@
 
 	 <!-- Bootstrap Core CSS -->
     <link href="./resources/vendor/vendor1/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Plugin CSS -->
+    <link href="./resources/vendor/vendor3/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="./resources/vendor/vendor2/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,6 +49,17 @@
 
     <!-- Custom CSS -->
     <link href="./resources/css/stylish-portfolio.min.css" rel="stylesheet">
+    <style type="text/css">
+    	#nav-bottom{
+    		position:fixed; 
+    		width:100%;
+    		bottom: 0;
+    		height:70px;
+    		background-color: #f3f3f3; 
+    	}
+    </style>
+
+
 
   </head>
 
@@ -84,74 +104,78 @@
           <h2 class="mb-5">Traveling Locations</h2>
         </div>
         <div class="row no-gutters">
+          <c:forEach var="Album" items="${albumList}">
           <div class="col-lg-6">
-            <a class="portfolio-item" href="albumDetails">
+            <a class="portfolio-item" href="albumDetail?albumno=${Album.albumno}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>${Album.title}</h2>
-                  <p class="mb-0">${Album.introduction}</p>
+                  <h2>${Album.albumtitle}</h2>
+                  <p class="mb-0">${Album.albumintro}</p>
                 </span>
               </span>
-              <img class="img-fluid" src="./resources/img/portfolio-1.jpg" alt="">
+              <img class="img-fluid" src="${Album.albumimg}" alt="">
             </a>
           </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Ice Cream</h2>
-                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="./resources/img/portfolio-2.jpg" alt="">
+          </c:forEach>
+        </div>
+      </div>
+    </section>
+    
+    <section class="p-0" id="portfolio">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters popup-gallery">
+          
+          <c:forEach var="Album" items="${albumList}">
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="albumDetails">
+              <img class="img-fluid" src="${Album.albumimg}" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    ${Album.albumtitle}
+                  </div>
+                  <div class="project-name">
+                    ${Album.albumintro}
+                  </div>
+                </div>
+              </div>
             </a>
           </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Strawberries</h2>
-                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="./resources/img/portfolio-3.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Workspace</h2>
-                  <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="./resources/img/portfolio-4.jpg" alt="">
-            </a>
-          </div>
+          </c:forEach>
         </div>
       </div>
     </section>
  
-
-
+ 	<section>
+	<div id="nav-bottom">
+		<a href="createAlbum" class="btn btn-primary js-scroll-trigger" >CREATE ALBUM</a>
+	</div>
+</section>
 
    
-    <!-- Footer -->
-    <footer class="bg-black small text-center text-white-50">
-      <div class="container">
-        Copyright &copy; Your Website 2018
-      </div>
-    </footer>
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="./resources/vendor/vendor1/jquery/jquery.min.js"></script>
     <script src="./resources/vendor/vendor1/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./resources/vendor/vendor3/jquery/jquery.min.js"></script>
+    <script src="./resources/vendor/vendor3/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
 
     <!-- Plugin JavaScript -->
     <script src="./resources/vendor/vendor1/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./resources/vendor/vendor3/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./resources/vendor/vendor3/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="./resources/vendor/vendor3/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="./resources/js/grayscale.min.js"></script>
+    <script src="./resources/js/creative.min.js"></script>
+    
+    
+
+    
 
   </body>
 

@@ -1,5 +1,6 @@
 package t4.submarine.com.DAO;
 
+import t4.submarine.com.VO.Album;
 import t4.submarine.com.VO.Member;
 
 public interface MemberMapper {
@@ -11,5 +12,7 @@ public interface MemberMapper {
 	int registerMember(Member member);
 
 	Member selectOne(Member member);
+
+	int createAlbum(Album album);
 
 }
