@@ -16,10 +16,10 @@
     <title>My Journey Diary</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor1/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="./resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor2/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -31,12 +31,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	 <!-- Bootstrap Core CSS -->
-    <link href="./resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor1/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="./resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./resources/vendor/vendor2/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="./resources/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="./resources/vendor/vendor2/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="./resources/css/stylish-portfolio.min.css" rel="stylesheet">
@@ -144,11 +144,11 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="./resources/vendor/jquery/jquery.min.js"></script>
-    <script src="./resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./resources/vendor/vendor1/jquery/jquery.min.js"></script>
+    <script src="./resources/vendor/vendor1/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="./resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./resources/vendor/vendor1/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="./resources/js/grayscale.min.js"></script>
