@@ -4,4 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="t4.submarine.com.DAO.AlbumMapper">
+
+	<select id="getAlbumList" parameterType="int" resultType="Album">
+		SELECT albumno, albumtitle, albumintro, albumimg, startdate, enddate, memberno
+		FROM album
+		WHERE memberno = #{memberno}
+	</select>
+	
 </mapper>

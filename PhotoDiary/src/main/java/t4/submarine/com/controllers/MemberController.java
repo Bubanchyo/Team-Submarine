@@ -88,6 +88,7 @@ public class MemberController {
 			if(m != null) {
 				session.setAttribute("useremail", m.getUseremail());
 				session.setAttribute("username", m.getUsername());
+				session.setAttribute("memberno", m.getMemberno());
 				return "redirect:/";
 			}else {
 				model.addAttribute("message", "해당 아이디나 비밀번호가 없습니다.");
