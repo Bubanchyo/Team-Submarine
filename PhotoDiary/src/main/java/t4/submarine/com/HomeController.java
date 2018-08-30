@@ -39,8 +39,6 @@ public class HomeController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		
-		
-
 		return "index";
 	}
 	
@@ -48,7 +46,6 @@ public class HomeController {
 	public String goToIntro() {
 		
 		
-
 		return "intro";
 	}
 	

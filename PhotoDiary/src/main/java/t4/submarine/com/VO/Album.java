@@ -2,19 +2,15 @@ package t4.submarine.com.VO;
 
 public class Album {
 	private int albumno;
+	private String albumtitle;
+	private String albumintro;
+	private String albumimg;
+	private String startdate;
+	private String enddate;
 	private int memberno;
-	private String title;
-	private String thumbnail;
-
+	
 	public Album() {
-	}
-
-	public Album(int albumno, int memberno, String title, String thumbnail) {
-		super();
-		this.albumno = albumno;
-		this.memberno = memberno;
-		this.title = title;
-		this.thumbnail = thumbnail;
+		
 	}
 
 	public int getAlbumno() {
@@ -25,6 +21,46 @@ public class Album {
 		this.albumno = albumno;
 	}
 
+	public String getAlbumtitle() {
+		return albumtitle;
+	}
+
+	public void setAlbumtitle(String albumtitle) {
+		this.albumtitle = albumtitle;
+	}
+
+	public String getAlbumintro() {
+		return albumintro;
+	}
+
+	public void setAlbumintro(String albumintro) {
+		this.albumintro = albumintro;
+	}
+
+	public String getAlbumimg() {
+		return albumimg;
+	}
+
+	public void setAlbumimg(String albumimg) {
+		this.albumimg = albumimg;
+	}
+
+	public String getStartdate() {
+		return startdate;
+	}
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
 	public int getMemberno() {
 		return memberno;
 	}
@@ -33,26 +69,11 @@ public class Album {
 		this.memberno = memberno;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getThumbnail() {
-		return thumbnail;
-	}
-
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
-
 	@Override
 	public String toString() {
-		return "Album [albumno=" + albumno + ", memberno=" + memberno + ", title=" + title + ", thumbnail=" + thumbnail
-				+ "]";
+		return "Album [albumno=" + albumno + ", albumtitle=" + albumtitle + ", albumintro=" + albumintro + ", albumimg="
+				+ albumimg + ", startdate=" + startdate + ", enddate=" + enddate + ", memberno=" + memberno + "]";
 	}
-
+	
+	
 }
