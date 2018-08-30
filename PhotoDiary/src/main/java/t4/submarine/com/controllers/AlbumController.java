@@ -1,6 +1,8 @@
 package t4.submarine.com.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -42,12 +44,21 @@ public class AlbumController {
 	}
 	
 	 //앨범디테일 
-	@RequestMapping(value = "/albumDetails", method = RequestMethod.GET)
-	public String albumDetails() {
-	/***
-	 * 3번 	
-	 */
-	
+	@RequestMapping(value = "/albumDetail", method = RequestMethod.GET)
+	public String albumDetails(int albumno, HttpSession session, Model model) {
+		int memberno = (int)session.getAttribute("memberno");
+		
+		AlbumMapper albumMapper = sqlSession.getMapper(AlbumMapper.class);
+		//검색 데이터 작성 Map
+		Map<String, Integer> searchdata = new HashMap<String, Integer>();
+		searchdata.put("albumno", albumno);
+		searchdata.put("memberno", memberno);
+				
+		Album selected = albumMapper.getAlbum(searchdata);
+		
+		System.out.println(selected);
+		
+		model.addAttribute("album", selected);
 		
 		return "album/albumDetails";
 	}
