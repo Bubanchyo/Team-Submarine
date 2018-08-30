@@ -43,8 +43,11 @@ public class AlbumController {
 	
 	 //앨범디테일 
 	@RequestMapping(value = "/albumDetails", method = RequestMethod.GET)
-	public String albumDetails(int albumno) {
-		
+	public String albumDetails() {
+	/***
+	 * 3번 	
+	 */
+	
 		
 		return "album/albumDetails";
 	}
