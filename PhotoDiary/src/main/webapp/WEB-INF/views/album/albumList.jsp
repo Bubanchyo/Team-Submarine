@@ -40,6 +40,15 @@
 
     <!-- Custom CSS -->
     <link href="./resources/css/stylish-portfolio.min.css" rel="stylesheet">
+    <style type="text/css">
+    	#nav-bottom{
+    		position:fixed; 
+    		width:100%;
+    		bottom: 0;
+    		height:70px;
+    		background-color: #f3f3f3; 
+    	}
+    </style>
 
   </head>
 
@@ -80,68 +89,37 @@
     <section class="content-section" id="portfolio">
       <div class="container">
         <div class="content-section-heading text-center">
-          <h3 class="text-secondary mb-0">Portfolio</h3>
-          <h2 class="mb-5">Recent Projects</h2>
+          <h3 class="text-secondary mb-0">My Journey Diary</h3>
+          <h2 class="mb-5">Traveling Locations</h2>
         </div>
         <div class="row no-gutters">
+          <c:forEach var="Album" items="${albumList}">
           <div class="col-lg-6">
-            <a class="portfolio-item" href="albumDetails">
+          	<p>${Album.albumno} || ${Album.albumtitle} || ${Album.albumintro} || ${Album.albumimg}</p>
+            <a class="portfolio-item" href="albumDetail?albumno=${Album.albumno}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Stationary</h2>
-                  <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                  <h2>${Album.albumtitle}</h2>
+                  <p class="mb-0">${Album.albumintro}</p>
                 </span>
               </span>
-              <img class="img-fluid" src="./resources/img/portfolio-1.jpg" alt="">
+              <img class="img-fluid" src="${Album.albumimg}" alt="">
             </a>
           </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Ice Cream</h2>
-                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="./resources/img/portfolio-2.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Strawberries</h2>
-                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="./resources/img/portfolio-3.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Workspace</h2>
-                  <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="./resources/img/portfolio-4.jpg" alt="">
-            </a>
-          </div>
+          </c:forEach>
         </div>
       </div>
     </section>
  
-
-
+ 	<section>
+	<div id="nav-bottom">
+		<a href="createAlbum" class="btn btn-primary js-scroll-trigger" align="center">CREATE ALBUM</a>
+	</div>
+</section>
 
    
-    <!-- Footer -->
-    <footer class="bg-black small text-center text-white-50">
-      <div class="container">
-        Copyright &copy; Your Website 2018
-      </div>
-    </footer>
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="./resources/vendor/vendor1/jquery/jquery.min.js"></script>

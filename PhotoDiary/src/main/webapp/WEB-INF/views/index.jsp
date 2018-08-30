@@ -48,8 +48,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-          
-          	
+           	<li class="nav-item">
+              <p>Welcome! "${sessionScope.username} & ${sessionScope.memberno}"</p>
+            </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
@@ -80,11 +81,11 @@
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
           <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-          <c:if test="${sessionScope.useremail == null}">
+          <c:if test="${sessionScope.memberno == null}">
           		<a href="goToIntro" class="btn btn-primary js-scroll-trigger">Journey Diary</a>
           </c:if>
-          <c:if test="${sessionScope.useremail != null}">
-          		<a href="journeyDiary?useremail=${sessionScope.useremail}" class="btn btn-primary js-scroll-trigger">My Journey Diary</a>
+          <c:if test="${sessionScope.memberno != null}">
+          		<a href="journeyDiary" class="btn btn-primary js-scroll-trigger">My Journey Diary</a>
           </c:if>
          
         </div>
