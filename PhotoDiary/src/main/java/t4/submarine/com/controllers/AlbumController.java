@@ -44,7 +44,10 @@ public class AlbumController {
 	 //Register form 불러오기 
 	@RequestMapping(value = "/albumDetails", method = RequestMethod.GET)
 	public String albumDetails() {
-		
+	/***
+	 * 3번 	
+	 */
+	
 		
 		return "album/albumDetails";
 	}
