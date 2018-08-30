@@ -41,9 +41,9 @@ public class AlbumController {
 		return "album/albumList";
 	}
 	
-	 //Register form 불러오기 
+	 //앨범디테일 
 	@RequestMapping(value = "/albumDetails", method = RequestMethod.GET)
-	public String albumDetails() {
+	public String albumDetails(int albumno) {
 		
 		
 		return "album/albumDetails";
