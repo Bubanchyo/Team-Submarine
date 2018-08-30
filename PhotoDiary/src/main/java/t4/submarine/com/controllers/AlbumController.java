@@ -1,8 +1,6 @@
 package t4.submarine.com.controllers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import t4.submarine.com.DAO.AlbumMapper;
 import t4.submarine.com.DAO.MemberMapper;
 import t4.submarine.com.VO.Album;
+import t4.submarine.com.VO.Photo;
 
 /**
  * Handles requests for the application home page.
@@ -38,29 +37,27 @@ public class AlbumController {
 			System.out.println("albumList FROM DB::: " + albumList);
 		
 		model.addAttribute("albumList", albumList);
+		
 
 			
 		return "album/albumList";
 	}
 	
-	 //앨범디테일 
-	@RequestMapping(value = "/albumDetail", method = RequestMethod.GET)
+	 //photoList 불러오
+	@RequestMapping(value = "/photoList", method = RequestMethod.GET)
 	public String albumDetails(int albumno, HttpSession session, Model model) {
-		int memberno = (int)session.getAttribute("memberno");
+		
+		
 		
 		AlbumMapper albumMapper = sqlSession.getMapper(AlbumMapper.class);
-		//검색 데이터 작성 Map
-		Map<String, Integer> searchdata = new HashMap<String, Integer>();
-		searchdata.put("albumno", albumno);
-		searchdata.put("memberno", memberno);
-				
-		Album selected = albumMapper.getAlbum(searchdata);
+		ArrayList<Photo> photoList = albumMapper.getPhotoList(albumno);
+			System.out.println("photoList from DB:::" + photoList);
+
 		
-		System.out.println(selected);
+		model.addAttribute("photoList", photoList);
+		model.addAttribute("albumno", albumno);
 		
-		model.addAttribute("album", selected);
-		
-		return "album/albumDetails";
+		return "album/photoList";
 	}
 	
 	 //createAlbum 불러오기 

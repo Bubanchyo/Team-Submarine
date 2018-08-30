@@ -89,21 +89,21 @@
     <section class="content-section" id="portfolio">
       <div class="container">
         <div class="content-section-heading text-center">
-          <h3 class="text-secondary mb-0">My Journey Diary</h3>
-          <h2 class="mb-5">Traveling Locations</h2>
+          <h3 class="text-secondary mb-0">PHOTO LIST</h3>
+          <h2 class="mb-5">ALBUM TITLE(나중에 albumno랑 조인해서 album title 받아와야함...)</h2>
         </div>
         <div class="row no-gutters">
-          <c:forEach var="Album" items="${albumList}">
+          <c:forEach var="Photo" items="${photoList}">
           <div class="col-lg-6">
-          	<p>${Album.albumno} || ${Album.albumtitle} || ${Album.albumintro} || ${Album.albumimg}</p>
-            <a class="portfolio-item" href="photoList?albumno=${Album.albumno}">
+          	<p>${Photo.photono} || ${Photo.photocontent} || ${Photo.keyword} || ${Photo.photoimg}</p>
+            <a class="portfolio-item" href="photoDetails?photono=${Photo.photono}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>${Album.albumtitle}</h2>
-                  <p class="mb-0">${Album.albumintro}</p>
+                  <h2>${Photo.photocontent}</h2>
+                  <p class="mb-0">${Photo.keyword}</p>
                 </span>
               </span>
-              <img class="img-fluid" src="${Album.albumimg}" alt="">
+              <img class="img-fluid" src="${Photo.photoimg}" alt="">
             </a>
           </div>
           </c:forEach>
@@ -113,7 +113,7 @@
  
  	<section>
 	<div id="nav-bottom">
-		<a href="createAlbum" class="btn btn-primary js-scroll-trigger" align="center">CREATE ALBUM</a>
+		<a href="createPost?albumno=${albumno}" class="btn btn-primary js-scroll-trigger" >CREATE POST</a>
 	</div>
 </section>
 

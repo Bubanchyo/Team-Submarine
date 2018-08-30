@@ -4,11 +4,11 @@
 	<typeAliases>
 		<typeAlias type="t4.submarine.com.VO.Member" alias="Member"/>
 		<typeAlias type="t4.submarine.com.VO.Album" alias="Album"/>
-		<typeAlias type="t4.submarine.com.VO.PhotoDetail" alias="PhotoDetail"/>
+		<typeAlias type="t4.submarine.com.VO.Photo" alias="Photo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="Mappers/memberMapper.xml"/>
 		<mapper resource="Mappers/albumMapper.xml"/>
-		<mapper resource="Mappers/photodetailMapper.xml"/>
+		<mapper resource="Mappers/photoMapper.xml"/>
 	</mappers>
 </configuration>

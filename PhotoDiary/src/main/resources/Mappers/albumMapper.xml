@@ -11,12 +11,10 @@
 		WHERE memberno = #{memberno}
 	</select>
 	
-	<select id="getAlbum" parameterType="map" resultType="Album">
-		SELECT
-			albumno, albumtitle, albumintro, albumimg, startdate, enddate, memberno
-		FROM
-			album
-		WHERE memberno = #{memberno} and albumno = #{albumno}
+	<select id="getPhotoList" parameterType="int" resultType="Photo">
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, memberno
+		FROM photo	
+		WHERE albumno = #{albumno}
 	
 	</select>
 </mapper>
