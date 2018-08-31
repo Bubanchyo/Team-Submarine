@@ -10,4 +10,34 @@
 		FROM photo
 		WHERE photono=#{photono}
 	</select>
+	
+	
+	<!-- ajaxUpload -->
+	<insert id="ajaxUpload" parameterType="Photo">
+		INSERT INTO PHOTO
+		VALUES(
+			photoseq.nextVal,
+			#{albumno},
+			#{privacy},
+			#{photoimg},
+			#{photocontent},
+			#{keyword},
+			#{dateoftravel},
+		<if test="lat != null">
+			#{lat},
+			#{lng},
+		</if>
+			#{memberno}
+		)		
+	</insert>
+	
+	<!-- 임시 업로드 -->
+	<insert id="uploadimg" parameterType="Image">
+		INSERT INTO uploadimg
+		VALUES(
+			imgseq.nextVal,
+			#{originalfilename},
+			#{savedfilename}
+		)
+	</insert>
 </mapper>

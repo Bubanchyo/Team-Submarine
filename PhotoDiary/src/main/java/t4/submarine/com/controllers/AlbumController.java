@@ -1,6 +1,8 @@
 package t4.submarine.com.controllers;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,10 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import t4.submarine.com.DAO.AlbumMapper;
 import t4.submarine.com.DAO.MemberMapper;
+import t4.submarine.com.DAO.PhotoMapper;
 import t4.submarine.com.VO.Album;
+import t4.submarine.com.VO.Image;
 import t4.submarine.com.VO.Photo;
 
 /**
@@ -86,6 +92,38 @@ public class AlbumController {
 		
 		
 		return "album/createAlbum";
+	}
+	
+	
+	
+	
+	
+	//Ajax image Upload
+	//String UPLOADPATH = System.getProperty("user.dir") + "\\workSpace\\PhotoDiary\\src\\main\\webapp\\resources\\upload";
+	String UPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine\\PhotoDiary\\src\\main\\webapp\\resources\\upload";
+	@RequestMapping(value = "/ajaximage", method = RequestMethod.POST)
+	public @ResponseBody String ajaximage(MultipartFile uploadfile) {
+		
+		UUID uuid = UUID.randomUUID();
+		String saveFileName = uuid + "_" + uploadfile.getOriginalFilename();
+		
+		File saveFile = new File(UPLOADPATH, saveFileName);
+		
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+		
+		
+		try {
+			uploadfile.transferTo(saveFile);
+			Image image = new Image();
+			image.setOriginalfilename(uploadfile.getOriginalFilename());
+			image.setSavedfilename(saveFileName);
+			photoManager.uploadimg(image);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return "./resources/upload/" + saveFileName;
 	}
 	
 	
