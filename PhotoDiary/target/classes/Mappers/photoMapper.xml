@@ -32,7 +32,7 @@
 	</insert>
 	
 	<!-- 임시 업로드 -->
-	<insert id="uploadimg" parameterType="Image">
+	<insert id="uploadimg" parameterType="Uploadimage">
 		INSERT INTO uploadimg
 		VALUES(
 			imgseq.nextVal,

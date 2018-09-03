@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" language="java" contentType="text/html; charset=UTF-8"
- pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<% response.setHeader("Content-Type", "text/html;charset=utf-8");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +50,7 @@ $(document).ready(function(){
                             data: formData,
                             type: 'POST',
                             success: function(result){
-                                $("#image").html("<image src='"+ result +"'>");
+                                $("#hashtag").html('<a href="#">#' + result + '</a>');
                             }
                     });
             }
@@ -67,10 +68,10 @@ $(document).ready(function(){
 <form id="fileform" method="post" enctype="multipart/form-data">
 	<input type="file" id="FILE_TAG" name="uploadfile">
 	<input type="hidden" name="albumno"><br>
-	<input class="privacy" type="checkbox" name="privacy" value="공개" checked="checked">공개
-	<input class="privacy" type="checkbox" name="privacy" value="비공개">비공개<br>
+	<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개
+	<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
 		<textarea name="photocontent" rows="10" cols="90" style="resize: none"></textarea>
-	<div> 해 시 태 그 들 어 갈 곳</div>
+	<div id="hashtag"> 해 시 태 그 들 어 갈 곳</div><input type="button" value="해시태그받아오기" onclick="uploadFile()">
 	<input type="date" name="dateoftravel">
 	<input type="button" value="파일업로드" onclick="uploadFile()">
 </form>

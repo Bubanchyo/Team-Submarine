@@ -4,15 +4,15 @@ package t4.submarine.com.VO;
  * 임시 VO 
  * */
 
-public class Image {
+public class Uploadimage {
 	private int imgseq;
 	private String originalfilename;
 	private String savedfilename;
 
-	public Image() {
+	public Uploadimage() {
 	}
 
-	public Image(int imgseq, String originalfilename, String savedfilename) {
+	public Uploadimage(int imgseq, String originalfilename, String savedfilename) {
 		super();
 		this.imgseq = imgseq;
 		this.originalfilename = originalfilename;

@@ -6,7 +6,7 @@
 		<typeAlias type="t4.submarine.com.VO.Album" alias="Album"/>
 		<typeAlias type="t4.submarine.com.VO.Photo" alias="Photo"/>
 		<!-- 임시 VO추가 -->
-		<typeAlias type="t4.submarine.com.VO.Image" alias="Image"/>
+		<typeAlias type="t4.submarine.com.VO.Uploadimage" alias="Uploadimage"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="Mappers/memberMapper.xml"/>
