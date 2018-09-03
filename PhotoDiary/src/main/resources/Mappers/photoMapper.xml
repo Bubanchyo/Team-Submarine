@@ -12,6 +12,25 @@
 	</select>
 	
 	
+	<insert id="photoUpload" parameterType="Photo">
+		INSERT INTO PHOTO
+			VALUES(
+				photoseq.nextVal,
+				#{albumno},
+				#{privacy},
+				#{photoimg},
+				#{photocontent},
+				#{keyword},
+				#{dateoftravel},
+			<if test="lat != null">
+				#{lat},
+				#{lng},
+			</if>
+				#{memberno}
+			)		
+	</insert>
+	
+	
 	<!-- ajaxUpload -->
 	<insert id="ajaxUpload" parameterType="Photo">
 		INSERT INTO PHOTO

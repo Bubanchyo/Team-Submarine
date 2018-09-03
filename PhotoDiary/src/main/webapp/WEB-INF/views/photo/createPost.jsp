@@ -46,16 +46,27 @@ $(document).ready(function(){
                 $.ajax({
                 	url:"ajaximage",
                             processData: false,
-                            contentType: false,
+                            contentType : false,
                             data: formData,
                             type: 'POST',
                             success: function(result){
-                                $("#hashtag").html('<a href="#">#' + result + '</a>');
+                            	$("#photoimg").val(result);
+                            	
+                            	var savedata = result;
+                            	
+                            	console.log(savedata);
+                            	
+                            	$.ajax({
+                            		url:"hashtag",
+                                    data: 'saveFileName='+savedata,
+                                    type: 'POST',
+                                    success: function(hashtag){
+                                    	$("#hashtag").html('<a href="#">#' + hashtag + '</a>');                                    	
+                                    }
+                            	})
                             }
                     });
             }
-
-
 </script>	
 	
 <body>
@@ -65,15 +76,17 @@ $(document).ready(function(){
 	<img id="img" style="width: 500px; height: 375px"/>
 </div>
 
-<form id="fileform" method="post" enctype="multipart/form-data">
+<form id="fileform" action="registerPhoto" method="POST" enctype="multipart/form-data">
 	<input type="file" id="FILE_TAG" name="uploadfile">
-	<input type="hidden" name="albumno"><br>
-	<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개
+	<input id="photoimg" type="hidden" name="photoimg">
+	<!-- <input type="hidden" name="albumno"><br> --> <!-- 현재 여기서 값을 못받아오고있다. -->
+    <input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개
 	<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
 		<textarea name="photocontent" rows="10" cols="90" style="resize: none"></textarea>
-	<div id="hashtag"> 해 시 태 그 들 어 갈 곳</div><input type="button" value="해시태그받아오기" onclick="uploadFile()">
+	<div id="hashtag"> 해 시 태 그 들 어 갈 곳</div>
+	<input type="button" value="해시태그받아오기" onclick="uploadFile()"><br>
 	<input type="date" name="dateoftravel">
-	<input type="button" value="파일업로드" onclick="uploadFile()">
+	<input type="submit" value="파일업로드">
 </form>
 
 

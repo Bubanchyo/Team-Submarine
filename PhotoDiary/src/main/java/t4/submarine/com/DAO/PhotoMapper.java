@@ -7,6 +7,7 @@ public interface PhotoMapper {
 
 	public Photo selectOnePhoto(int photono);
 	public int ajaxUpload(Photo photo);
+	public int photoUpload(Photo photo);
 	public int uploadimg(Uploadimage image);
 
 }

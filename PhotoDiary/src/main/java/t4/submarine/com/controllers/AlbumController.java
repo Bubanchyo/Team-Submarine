@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -139,9 +141,15 @@ public class AlbumController {
 			e.printStackTrace();
 		}
 		
+	
+		return UPLOADPATH + saveFileName;
+	}
+	
+	@RequestMapping(value = "/hashtag", produces = "application/text; charset=utf8", method = RequestMethod.POST)
+	public @ResponseBody String hashtag(String saveFileName) {
 		
 		try {
-			return detectWebDetections(UPLOADPATH+saveFileName); 
+			return detectWebDetections(saveFileName); 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -150,7 +158,7 @@ public class AlbumController {
 			e.printStackTrace();
 		}
 		
-		return "./resources/upload/" + saveFileName;
+		return "Failed";
 	}
 	
 	// 로컬 이미지 감지
@@ -181,34 +189,24 @@ public class AlbumController {
 					System.out.println("Entity:Id:Score");
 					System.out.println("===============");
 					int i = 0;
-					for (WebEntity entity : annotation.getWebEntitiesList()) {
-						System.out.println(entity.getDescription() + " : " + entity.getEntityId() + " : " + entity.getScore());
-						System.out.println(i++);
-					}
 					for (WebLabel label : annotation.getBestGuessLabelsList()) {
 						System.out.format("\nBest guess label: %s", label.getLabel());
 						return label.getLabel();
-					}
-					System.out.println("\nPages with matching images: Score\n==");
-					for (WebPage page : annotation.getPagesWithMatchingImagesList()) {
-						System.out.println(page.getUrl() + " : " + page.getScore());
-					}
-					System.out.println("\nPages with partially matching images: Score\n==");
-					for (WebImage image : annotation.getPartialMatchingImagesList()) {
-						System.out.println(image.getUrl() + " : " + image.getScore());
-					}
-					System.out.println("\nPages with fully matching images: Score\n==");
-					for (WebImage image : annotation.getFullMatchingImagesList()) {
-						System.out.println(image.getUrl() + " : " + image.getScore());
-					}
-					System.out.println("\nPages with visually similar images: Score\n==");
-					for (WebImage image : annotation.getVisuallySimilarImagesList()) {
-						System.out.println(image.getUrl() + " : " + image.getScore());
 					}
 				}
 				return "end";
 			}
 		}
-	
+		
+		@RequestMapping(value = "/registerPhoto", method = RequestMethod.POST)
+		public String RegisterPhoto(Model model, HttpSession session, Photo photo, MultipartFile uploadfile) {
+			
+			/*PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+			int result = photoManager.photoUpload(photo);
+			
+			System.out.println(result);*/
+			
+			return "album/photoList";
+		}
 	
 }
