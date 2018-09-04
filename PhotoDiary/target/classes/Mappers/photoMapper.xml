@@ -6,7 +6,19 @@
 <mapper namespace="t4.submarine.com.DAO.PhotoMapper">
 	<!--  -->
 	<select id="selectOnePhoto" parameterType="int" resultType="Photo">
-		SELECT * 
+		SELECT 
+			photono,
+			albumno,
+			privacy,
+			photoimg,
+			photocontent,
+			keyword,
+			dateoftravel,
+		<!-- 왜?<if test="lat != null"> -->
+			lat,
+			lng,
+		<!-- </if> -->
+			memberno 
 		FROM photo
 		WHERE photono=#{photono}
 	</select>
@@ -22,26 +34,26 @@
 				photocontent,
 				keyword,
 				dateoftravel,
-		<if test="lat != null">
-			#{lat},
-			#{lng},
-		</if>
+			<if test="lat != null">
+				lat,
+				lng,
+			</if>
 				memberno
 		)
 		VALUES
 		(
-			photoseq.nextVal,
-			#{albumno},
-			#{privacy},
-			#{photoimg},
-			#{photocontent},
-			#{keyword},
-			#{dateoftravel},
-		<if test="lat != null">
-			#{lat},
-			#{lng},
-		</if>
-			#{memberno}
+				photoseq.nextVal,
+				#{albumno},
+				#{privacy},
+				#{photoimg},
+				#{photocontent},
+				#{keyword},
+				#{dateoftravel},
+			<if test="lat != null">
+				#{lat},
+				#{lng},
+			</if>
+				#{memberno}
 		)		
 	</insert>
 	
