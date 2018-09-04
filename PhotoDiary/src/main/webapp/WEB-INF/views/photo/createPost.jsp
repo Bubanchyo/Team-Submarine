@@ -61,7 +61,8 @@ $(document).ready(function(){
                                     data: 'saveFileName='+savedata,
                                     type: 'POST',
                                     success: function(hashtag){
-                                    	$("#hashtag").html('<a href="#">#' + hashtag + '</a>');                                    	
+                                    	$("#hashtag").html('<a href="#">#' + hashtag + '</a>');
+                                    	$("#hiddenhash").attr('value', hashtag);
                                     }
                             	})
                             }
@@ -79,11 +80,12 @@ $(document).ready(function(){
 <form id="fileform" action="registerPhoto" method="POST" enctype="multipart/form-data">
 	<input type="file" id="FILE_TAG" name="uploadfile">
 	<input id="photoimg" type="hidden" name="photoimg">
-	<!-- <input type="hidden" name="albumno"><br> --> <!-- 현재 여기서 값을 못받아오고있다. -->
+	<input type="hidden" name="albumno" value=${albumno}><br>
     <input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개
 	<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
 		<textarea name="photocontent" rows="10" cols="90" style="resize: none"></textarea>
-	<div id="hashtag"> 해 시 태 그 들 어 갈 곳</div>
+	<div id="hashtag">해 시 태 그 들 어 갈 곳</div>
+	<input id="hiddenhash" type="hidden" name="keyword"> 
 	<input type="button" value="해시태그받아오기" onclick="uploadFile()"><br>
 	<input type="date" name="dateoftravel">
 	<input type="submit" value="파일업로드">
