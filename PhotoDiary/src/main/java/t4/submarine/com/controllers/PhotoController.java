@@ -34,6 +34,7 @@ import com.google.cloud.vision.v1.WebDetection.WebLabel;
 import com.google.cloud.vision.v1.WebDetection.WebPage;
 import com.google.protobuf.ByteString;
 
+import t4.submarine.com.DAO.AlbumMapper;
 import t4.submarine.com.DAO.PhotoMapper;
 import t4.submarine.com.VO.Photo;
 import t4.submarine.com.VO.Uploadimage;
@@ -177,13 +178,41 @@ public class PhotoController {
 		
 		return "album/photoList";
 	}
+
+	@RequestMapping(value = "/updatePhoto", method = RequestMethod.POST)
+	public String updatePhoto(Model model, int photono) {
+
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+		Photo photo = photoManager.selectOnePhoto(photono);
+		
+		AlbumMapper albumMapper = sqlSession.getMapper(AlbumMapper.class);
+		ArrayList<Photo> photoList = albumMapper.getPhotoList(photo.getAlbumno());
+
+		
+		model.addAttribute("photoList", photoList);
+		model.addAttribute("albumno", photo.getAlbumno());
+		
+		photoManager.deletePhoto(photono);
+		
+		return "redirect:/photoList";
+	}
 	
 	@RequestMapping(value = "/deletePhoto", method = RequestMethod.POST)
-	public String deletePhoto(String saveFileName) {
+	public String deletePhoto(Model model, int photono) {
 
-		sqlSession.getMapper(PhotoMapper.class);
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+		Photo photo = photoManager.selectOnePhoto(photono);
 		
-		return "Failed";
+		AlbumMapper albumMapper = sqlSession.getMapper(AlbumMapper.class);
+		ArrayList<Photo> photoList = albumMapper.getPhotoList(photo.getAlbumno());
+
+		
+		model.addAttribute("photoList", photoList);
+		model.addAttribute("albumno", photo.getAlbumno());
+		
+		photoManager.deletePhoto(photono);
+		
+		return "redirect:/photoList";
 	}
 
 }
