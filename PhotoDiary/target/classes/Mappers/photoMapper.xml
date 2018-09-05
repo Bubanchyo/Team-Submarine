@@ -86,4 +86,16 @@
 			#{savedfilename}
 		)
 	</insert>
+	
+	
+	<!-- 삭제기능 -->
+	<delete id="deletePhoto" parameterType="_int">
+		DELETE FROM PHOTO
+		WHERE #{photono}
+			
+	
+	</delete>
+	
+	<!-- 삭제기능 -->
+	
 </mapper>

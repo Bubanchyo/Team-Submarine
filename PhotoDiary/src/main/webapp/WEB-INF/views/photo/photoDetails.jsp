@@ -11,116 +11,62 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	var map;
-	var getlat = ${photoDetail.lat};
-	var getlng = ${photoDetail.lng}
+	var markers = [];
+	var geocoder;
+	var getlat = parseFloat("${photoDetail.lat}");
+	var getlng = parseFloat("${photoDetail.lng}");
 	
 	function initMap() {
-		map = new google.maps.Map(document.getElementById('map'), {
-			center : {
-				if(getlat != null && getlng != null){
+		
+		geocoder = new google.maps.Geocoder();
+		infowindow = new google.maps.InfoWindow;
+		
+		if(!isNaN(getlat) && !isNaN(getlng)){
+			map = new google.maps.Map(document.getElementById('map'), {
+				center : {
 					lat : getlat,
 					lng : getlng
-				}else{
-					lat : -34.397,
-					lng : 150.644
-				}
-			},
-			zoom : 8
-		});
-	}
-</script>
-
-<script>
-var markers = [];
-var geocoder;
-var labelName='';
-
-
-
- function uploadFile(){
-                
-                            	$.ajax({
-                            		url:"hashtag",
-                                    data: 'saveFileName='+savedata,
-                                    type: 'POST',
-                                    success: function(hashtag){
-                                    	$("#hashtag").html('<a href="#">#' + hashtag + '</a>');
-                                    	$("#hiddenhash").attr('value', hashtag);
-                                    	
-                                    	getPhotoInfo();
-                                    	labelName = hashtag;
-                                    }
-                            	})
-                            }
-
-                
-                function getPhotoInfo(resp) {
-				
-
-			$("#upResult2").html(text);
-			$("#callMap").click(mapinfo);	
-
+				},
+				zoom : 8
+			});
+			
+			geocoder.geocode( { 'address': '${photoDetail.keyword}'}, function(results, status) {
+	 	        if (status == google.maps.GeocoderStatus.OK) {
+	 	            map.setCenter(results[0].geometry.location);
+	 	            var marker = new google.maps.Marker({
+	 	                map: map,
+	 	                position: results[0].geometry.location
+	 	            });
+	 	 
+	 	           infowindow.setContent(
+	                		'<div class="wrap">' 
+	                		+ '   <div class="info">'
+	                		+ '		<div class="title"><strong>' + '${photoDetail.keyword}' + '</strong></div><br>'
+	                		+ '        <div class="body">'
+	                		+ '            <div class="desc">' 
+	                		+ '					<div class="ellipsis"><strong>주소: </strong>' + results[0].formatted_address +'</div>'
+	    					+ '					<div class="jibun ellipsis"><strong>위치정보: </strong>' + getlat + ", " + getlng + '</div><br>'
+	    					+ '            </div>'
+	    					+ '        </div>'
+	    					+ '   </div>'
+	    					+ '</div>')
+	    					
+	                infowindow.open(map, marker);
+	 	        } 
+	 	    });
+			
 		}
-
-		function mapinfo() {
-			var map;
-			var marker;
-			var infowindow;
-			var geocoder;
-
-			initMap(labelName);
-		}
-
-		function initMap(labelName) {
-			geocoder = new google.maps.Geocoder();
-			infowindow = new google.maps.InfoWindow;
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom : 15,
+		else{
+			map = new google.maps.Map(document.getElementById('map'), {
 				center : {
 					lat : -34.397,
 					lng : 150.644
-				}
+				},
+				zoom : 8
 			});
-			
-			$("#pac-input").attr("value", labelName);
-			var address = $("#pac-input").val();
-
-			 geocoder.geocode( { 'address': address}, function(results, status) {
-	    	        if (status == google.maps.GeocoderStatus.OK) {
-	    	            map.setCenter(results[0].geometry.location);
-	    	            var marker = new google.maps.Marker({
-	    	                map: map,
-	    	                position: results[0].geometry.location
-	    	            });
-	    	            var lat = results[0].geometry.location.lat();
-	    	            var lng = results[0].geometry.location.lng();
-	    	 
-	    	           console.log(lat);
-	    	           console.log(lng);
-	    	           
-	    	           infowindow.setContent(
-	                   		'<div class="wrap">' 
-	                   		+ '   <div class="info">'
-	                   		+ '		<div class="title"><strong>' + labelName + '</strong></div><br>'
-	                   		+ '        <div class="body">'
-	                   		+ '            <div class="desc">' 
-	                   		+ '					<div class="ellipsis"><strong>주소: </strong>' + results[0].formatted_address +'</div>'
-	       					+ '					<div class="jibun ellipsis"><strong>위치정보: </strong>' + lat + ", " + lng + '</div><br>'
-	       					+ '            </div>'
-	       					+ '        </div>'
-	       					+ '   </div>'
-	       					+ '</div>')
-	       					
-	                   infowindow.open(map, marker);
-	    	           $("#lat").attr('value', lat);
-	    	           $("#lng").attr('value', lng);
-	    	        } 
-	    	    });
 		}
-                
-                
-            }
- 		
+		 
+	}
 </script>
 
 <body>
@@ -137,16 +83,14 @@ var labelName='';
 	<input type="date" name="dateoftravel" value="${dateoftravel}"> 
 
 
-	<div id="upResult2"></div>
-	<div>
-		<p> 위치정보를 받아오시겠습니까?</p>
-		<input type="button" id="callMap" value="확인">
-		<input type="button" id="cancle" value="취소">
-	</div>	
 	<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
     <input id="pac-input" class="controls" type="hidden">
     <div id="infowindow-content"></div>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABYid41RaVrQL5pT8XhbZcRo3ss-MYG2w&libraries=places&callback=initMap"></script>
 
+	<input type="button" value="수정">
+	<input type="button" value="삭제">
+
 </body>
 </html>
+

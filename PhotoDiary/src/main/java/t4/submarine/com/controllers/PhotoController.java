@@ -177,5 +177,13 @@ public class PhotoController {
 		
 		return "album/photoList";
 	}
+	
+	@RequestMapping(value = "/deletePhoto", method = RequestMethod.POST)
+	public String deletePhoto(String saveFileName) {
+
+		sqlSession.getMapper(PhotoMapper.class);
+		
+		return "Failed";
+	}
 
 }

@@ -9,5 +9,5 @@ public interface PhotoMapper {
 	public int ajaxUpload(Photo photo);
 	public int photoUpload(Photo photo);
 	public int uploadimg(Uploadimage image);
-
+	public int deletePhoto(int photonum);
 }
