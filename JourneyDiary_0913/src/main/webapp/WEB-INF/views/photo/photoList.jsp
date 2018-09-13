@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/albumList.css" rel="stylesheet">
+<link href="./resources/css/photoList.css" rel="stylesheet">
 
 </head>
 
@@ -77,7 +77,7 @@
           <h2 class="mb-5">Recent Projects</h2>
         </div>
         <div class="row no-gutters">
-          <div class="col-lg-6">
+          <div class="col-lg-3">
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
@@ -88,7 +88,7 @@
               <img class="img-fluid" src="./resources/img/portfolio-1.jpg" alt="">
             </a>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-3">
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
@@ -99,7 +99,7 @@
               <img class="img-fluid" src="./resources/img/portfolio-2.jpg" alt="">
             </a>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-3">
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
@@ -110,7 +110,7 @@
               <img class="img-fluid" src="./resources/img/portfolio-3.jpg" alt="">
             </a>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-3">
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
@@ -128,7 +128,7 @@
     <!-- Call to Action -->
     <section class="content-section bg-primary text-white">
       <div class="container text-center" >
-        <a href="#" class="btn btn-xl btn-light mr-4">CREATE ALBUM</a>
+        <a href="#" class="btn btn-xl btn-light mr-4">CREATE PHOTO</a>
       </div>
     </section>
 
