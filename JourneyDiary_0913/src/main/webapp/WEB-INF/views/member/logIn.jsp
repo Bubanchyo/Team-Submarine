@@ -121,7 +121,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
             <span id="emailCheck"></span>
-            <form class="form-signin" action="login" method="post">
+            <form class="form-signin" action="logIn" method="post">
               <div class="form-label-group">
                 <input type="email" id="useremail" name="useremail" class="form-control" placeholder="Email address" required autofocus>
               </div>

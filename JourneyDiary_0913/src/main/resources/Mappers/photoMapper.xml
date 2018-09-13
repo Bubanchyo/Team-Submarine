@@ -5,6 +5,103 @@
 
 <mapper namespace="journey.diary.test.DAO.PhotoMapper">
 
-
+<!--  -->
+	<select id="selectOnePhoto" parameterType="int" resultType="Photo">
+		SELECT 
+			photono,
+			albumno,
+			privacy,
+			photoimg,
+			photocontent,
+			keyword,
+			TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel,
+		<!-- 왜?<if test="lat != null"> -->
+			lat,
+			lng,
+		<!-- </if> -->
+			memberno 
+		FROM photo
+		WHERE photono=#{photono}
+	</select>
+	
+	
+	<insert id="photoUpload" parameterType="Photo">
+		INSERT INTO PHOTO
+		(
+				photono,
+				albumno,
+				privacy,
+				photoimg,
+				photocontent,
+				keyword,
+				dateoftravel,
+			<if test="lat != null">
+				lat,
+				lng,
+			</if>
+				memberno
+		)
+		VALUES
+		(
+				photoseq.nextVal,
+				#{albumno},
+				#{privacy},
+				#{photoimg},
+				#{photocontent},
+				#{keyword},
+				#{dateoftravel},
+			<if test="lat != null">
+				#{lat},
+				#{lng},
+			</if>
+				#{memberno}
+		)		
+	</insert>
+	
+	
+	<!-- ajaxUpload -->
+	<insert id="ajaxUpload" parameterType="Photo">
+		INSERT INTO PHOTO
+		VALUES(
+			photoseq.nextVal,
+			#{albumno},
+			#{privacy},
+			#{photoimg},
+			#{photocontent},
+			#{keyword},
+			#{dateoftravel},
+		<if test="lat != null">
+			#{lat},
+			#{lng},
+		</if>
+			#{memberno}
+		)		
+	</insert>
+	
+	<!-- 임시 업로드 -->
+	<insert id="uploadimg" parameterType="Uploadimage">
+		INSERT INTO uploadimg
+		VALUES(
+			imgseq.nextVal,
+			#{originalfilename},
+			#{savedfilename}
+		)
+	</insert>
+	
+	
+	<!-- 삭제기능 -->
+	<delete id="deletePhoto" parameterType="_int">
+		DELETE FROM PHOTO
+		WHERE photono = #{photono}
+			
+	
+	</delete>
+	
+	<!-- 베스트포토 메인(carousel) -->
+	
+	<select id="getBestPHotos" parameterType="int" resultType="Photo">
+		SELECT * FROM photo
+		WHERE albumno = #{albumno}
+	</select>
 	
 </mapper>

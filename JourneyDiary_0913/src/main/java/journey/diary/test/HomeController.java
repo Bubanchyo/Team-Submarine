@@ -27,7 +27,11 @@ public class HomeController {
 		
 		System.out.println("started???");
 		
-		return "index";
+		return "album/albumList";
 	}
+	
+	
+	
+	
 	
 }
