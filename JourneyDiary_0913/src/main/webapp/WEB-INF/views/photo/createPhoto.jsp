@@ -212,13 +212,12 @@ $(function(){
 		</div>
 	</section>
 
-	<section>
-		<div id="nav-bottom">
-				<div>
-					<button type="submit" class="btn btn-primary">Confirm</button>
-				</div>
-		</div>
-	</section>
+	    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+      <div class="container text-center" >
+      	<button type="submit" class="btn btn-primary">CONFIRM</button>
+      </div>
+    </section>
 </form>	
 
 <br><br><br><br><br><br><br><br><br><br><br><br>

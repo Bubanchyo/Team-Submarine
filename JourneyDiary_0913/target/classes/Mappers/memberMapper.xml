@@ -6,6 +6,42 @@
 <mapper namespace="journey.diary.test.DAO.MemberMapper">
 
 
+	<!-- 이메일 중복 검사 -->
+	<select id="checkEmail" parameterType="String" resultType="int">
+		SELECT count(*) from member where useremail = #{useremail}
+	</select>
+	
+	<insert id="registerMember" parameterType="Member">
+		INSERT INTO member
+		(
+			memberno
+		  , useremail
+		  , username
+		  , userpassword
+		  , regdate
+		  , logdate
+		)
+		VALUES
+		(
+			member_seq.nextVal
+		  , #{useremail}
+		  , #{username}
+		  , #{userpassword}
+		  , sysdate
+		  , sysdate
+		)
+	</insert>
+	
+    <select id="selectOne" parameterType="Member" resultType="Member">
+		SELECT memberno
+		  , useremail
+		  , username
+		FROM member
+		WHERE useremail= #{useremail}
+		<if test="userpassword!=null">
+		and userpassword = #{userpassword}
+		</if>
+	</select>
 
 	
 

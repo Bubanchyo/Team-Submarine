@@ -211,7 +211,14 @@ $(function(){
 				 -->
 		</div>
 	</section>
-
+	
+	    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+      <div class="container text-center" >
+      	<button type="submit" class="btn btn-primary">CONFIRM</button>
+      </div>
+    </section>
+<!-- 
 	<section>
 		<div id="nav-bottom">
 				<div>
@@ -219,6 +226,7 @@ $(function(){
 				</div>
 		</div>
 	</section>
+	 -->
 </form>	
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
