@@ -45,4 +45,12 @@ public class AlbumController {
 
 		}
 		
+		@RequestMapping(value = "/createAlbum", method = RequestMethod.GET)
+		public String createAlbum(Locale locale, Model model, HttpSession session) {
+			
+
+			return "album/createAlbum";
+
+		}
+		
 	}
