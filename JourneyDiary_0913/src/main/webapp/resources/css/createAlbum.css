@@ -234,14 +234,16 @@ h6 {
   max-width: 30rem;
 }
 
- #bottomnav {
+#bottomnav {
    position:fixed;
    left:0px;
    bottom:0px;
    height:60px;
-   width:100%;
+   max-width:100%;
    background:#EE7785;
 }
+
+
 #bottomnav p {
    text-align: center;
 }

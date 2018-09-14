@@ -114,9 +114,11 @@
 	<!-- Call to Action -->
 	<section class="content-section bg-primary text-white">
 		<div class="container text-center">
-			<h2 class="mb-4">The buttons below are impossible to resist...</h2>
-			<a href="register" class="btn btn-xl btn-light mr-4">Register</a> <a
-				href="logIn" class="btn btn-xl btn-dark">Log In</a>
+			<c:if test="${sessionScope.username == null}">
+				<h2 class="mb-4">The buttons below are impossible to resist...</h2>
+				<a href="register" class="btn btn-xl btn-light mr-4">Register</a> 
+				<a href="logIn" class="btn btn-xl btn-dark">Log In</a>
+			</c:if>	
 		</div>
 	</section>
 

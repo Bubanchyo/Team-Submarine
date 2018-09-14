@@ -46,7 +46,7 @@
 		if ( navigator.platform ) { 
 			if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) 
 			{ 
-				$('.carousel-item').css('max-height', '240px');
+				$('.carousel-item').css('max-height', '200px');
 			}
 		}
 	});
@@ -134,24 +134,21 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
-      <!-- <img class="d-block w-100" src="./resources/img/portfolio-1.jpg" alt="첫번째 슬라이드" style='height: 100%; width: 100%; object-fit: contain'> -->
-      <img class="d-block w-100" src="./resources/img/1.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
+      <img class="d-block w-100" src="./resources/img/portfolio-1.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div>
     </div>
     <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
-      <!-- <img class="d-block w-100" src="./resources/img/portfolio-2.jpg" alt="두번째 슬라이드" style='height: 100%; width: 100%; object-fit: contain'> -->
-      <img class="d-block w-100" src="./resources/img/7.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
+      <img class="d-block w-100" src="./resources/img/portfolio-2.jpg" alt="두번째 슬라이드" style='max-height: initial; margin-top: -15%'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div>
     </div>
     <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
-      <!-- <img class="d-block w-100" src="./resources/img/portfolio-3.jpg" alt="세번째 슬라이드" style='height: 100%; width: 100%; object-fit: contain'> -->
-      <img class="d-block w-100" src="./resources/img/8.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
+      <img class="d-block w-100" src="./resources/img/portfolio-3.jpg" alt="세번째 슬라이드" style='max-height: initial; margin-top: -15%'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
@@ -302,8 +299,7 @@
 
 	<!-- Map -->
 	<section id="contact" class="map">
-		<iframe width="100%" height="100%" frameborder="0" scrolling="no"
-			marginheight="0" marginwidth="0"
+		<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
 			src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
 		<br /> <small> <a
 			href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>

@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/createAlbum.css" rel="stylesheet">
+<link href="./resources/css/createAlbum.css?ver=2" rel="stylesheet">
 
 </head>
 
@@ -181,6 +181,19 @@
 			</div>
 		</section>
 
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 		<!-- Call to Action -->
 		<section id="layer_fixed" class="content-section bg-primary text-white">
 			<div id="bottomnav" class="container text-center">
@@ -190,19 +203,6 @@
 
 
 	</form>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
 
 

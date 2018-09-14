@@ -32,7 +32,7 @@ public class HomeController {
 	public String goindex(Locale locale, Model model) {
 		
 
-		return "album/createAlbum";
+		return "index";
 
 
 	}
