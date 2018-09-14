@@ -74,11 +74,15 @@
 				<li class="sidebar-nav-item">
 					<a class="js-scroll-trigger" href="logIn">Log In</a>
 				</li>
+				
 			</c:if>
 			<c:if test="${sessionScope.username != null}">
         		<li class="sidebar-nav-item">
           			<a class="js-scroll-trigger" href="logout">Log Out</a>
         		</li>
+        		<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
+				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="#contact">Search</a>

@@ -154,14 +154,6 @@
 						</div>
 					</div>
 				</div>
-				<!--  
-				<div class="card my-4">						
-							<div class="form-group">
-								<h5 class="card-header">Album Title</h5>
-								<input type="text" class="form-control" name="albumtitle" />
-							</div>
-				</div>
-				-->
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Introduction</h4>
@@ -189,30 +181,14 @@
 			</div>
 		</section>
 
-		<!-- Call to Action 
-		<section class="content-section bg-primary text-white">
+		<!-- Call to Action -->
+		<section id="layer_fixed" class="content-section bg-primary text-white">
 			<div id="bottomnav" class="container text-center">
 				<button type="submit" class="btn btn-primary">CONFIRM</button>
 			</div>
 		</section>
 
--->
 
-		<div id="bottomnav">
-			<p>브라우저 아래에 고정되는 footer부분</p>
-		</div>
-
-
-
-		<!-- 
-	<section>
-		<div id="nav-bottom">
-				<div>
-					<button type="submit" class="btn btn-primary">Confirm</button>
-				</div>
-		</div>
-	</section>
-	 -->
 	</form>
 
 	<br>
