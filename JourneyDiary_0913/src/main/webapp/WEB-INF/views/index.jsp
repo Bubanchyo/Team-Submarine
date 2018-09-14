@@ -46,11 +46,8 @@
 		if ( navigator.platform ) { 
 			if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) 
 			{ 
-				$('.carousel-item').css('max-height', '320px');
+				$('.carousel-item').css('max-height', '240px');
 			}
-			else { //pc
-				alert('pc');
-			} 
 		}
 	});
 		
