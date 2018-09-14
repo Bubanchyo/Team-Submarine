@@ -162,14 +162,7 @@ $(function(){
   							</div>
 					</div>
 				</div>
-				<!--  
-				<div class="card my-4">						
-							<div class="form-group">
-								<h5 class="card-header">Album Title</h5>
-								<input type="text" class="form-control" name="albumtitle" />
-							</div>
-				</div>
-				-->
+	
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Introduction</h4>
@@ -193,22 +186,6 @@ $(function(){
   						<input type="date" class="form-control" name="enddate" />
 					</div>
 				</div>
-				<!-- 
-				<div class="card my-4">						
-							<div class="form-group">
-								<h5 class="card-header">StartDate</h5>
-								<input type="date" class="form-control" name="startdate" />
-							</div>
-				</div>
-				 -->
-				 <!-- 
-				<div class="card my-4">						
-							<div class="form-group">
-								<h5 class="card-header">EndDate</h5>
-								<input type="date" class="form-control" name="enddate" />
-							</div>
-				</div>
-				 -->
 		</div>
 	</section>
 
@@ -221,8 +198,6 @@ $(function(){
 </form>	
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
-
-
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./resources/vendor/jquery/jquery.min.js"></script>
