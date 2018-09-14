@@ -39,6 +39,24 @@
 
 </head>
 
+<!--  -->
+<script>
+	$(function(){
+		var filter = "win16|win32|win64|mac|macintel";
+		if ( navigator.platform ) { 
+			if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) 
+			{ 
+				$('.carousel-item').css('max-height', '320px');
+			}
+			else { //pc
+				alert('pc');
+			} 
+		}
+	});
+		
+	</script>
+<!--  -->
+
 <body id="page-top">
 
 	<!-- Navigation -->
@@ -114,22 +132,25 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="./resources/img/portfolio-1.jpg" alt="첫번째 슬라이드">
+    <div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
+      <!-- <img class="d-block w-100" src="./resources/img/portfolio-1.jpg" alt="첫번째 슬라이드" style='height: 100%; width: 100%; object-fit: contain'> -->
+      <img class="d-block w-100" src="./resources/img/1.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./resources/img/portfolio-2.jpg" alt="두번째 슬라이드">
+    <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
+      <!-- <img class="d-block w-100" src="./resources/img/portfolio-2.jpg" alt="두번째 슬라이드" style='height: 100%; width: 100%; object-fit: contain'> -->
+      <img class="d-block w-100" src="./resources/img/7.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./resources/img/portfolio-3.jpg" alt="세번째 슬라이드">
+    <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
+      <!-- <img class="d-block w-100" src="./resources/img/portfolio-3.jpg" alt="세번째 슬라이드" style='height: 100%; width: 100%; object-fit: contain'> -->
+      <img class="d-block w-100" src="./resources/img/8.jpg" alt="첫번째 슬라이드" style='max-height: initial; margin-top: -15%'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
