@@ -46,22 +46,18 @@
 	</a>
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
-			<li class="sidebar-brand"><a class="js-scroll-trigger"
-				href="#page-top">Start Bootstrap</a></li>
-			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#about">About</a></li>
-			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="register">Register</a></li>
-			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="logIn">Log In</a></li>
+			<li class="sidebar-brand"><a class="js-scroll-trigger" href="index">Start Bootstrap</a></li>
+			<c:if test="${sessionScope.username == null}">
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="register">Register</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="logIn">Log In</a></li>
+			</c:if>
+			<c:if test="${sessionScope.username != null}">
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="logout">Logout</a></li>
+			</c:if>
 			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
 				href="#contact">Search</a></li>
 		</ul>
 	</nav>
-
-
-
-
 
 	<!-- Services -->
 	<section class="content-section bg-primary text-white text-center"

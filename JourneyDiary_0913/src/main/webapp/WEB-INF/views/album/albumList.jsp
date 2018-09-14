@@ -51,10 +51,10 @@
           <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
+          <a class="js-scroll-trigger" href="/">Home</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
+          <a class="js-scroll-trigger" href="intro">About</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="#services">Services</a>
@@ -128,7 +128,7 @@
     <!-- Call to Action -->
     <section class="content-section bg-primary text-white">
       <div class="container text-center" >
-        <a href="#" class="btn btn-xl btn-light mr-4">CREATE ALBUM</a>
+        <a href="createAlbum" class="btn btn-xl btn-light mr-4">CREATE ALBUM</a>
       </div>
     </section>
 

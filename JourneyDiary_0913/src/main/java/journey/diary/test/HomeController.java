@@ -25,9 +25,16 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
-		System.out.println("started???");
+		return "index";
+	}
+	
+	@RequestMapping(value = "index", method = RequestMethod.GET)
+	public String goindex(Locale locale, Model model) {
 		
+
 		return "album/createAlbum";
+
+
 	}
 	
 	
