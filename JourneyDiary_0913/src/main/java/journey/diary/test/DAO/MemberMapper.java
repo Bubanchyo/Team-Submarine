@@ -4,11 +4,11 @@ import journey.diary.test.VO.Member;
 
 public interface MemberMapper {
 
-	int checkEmail(String useremail);
+	public int checkEmail(String useremail);
 
-	int registerMember(Member member);
+	public int registerMember(Member member);
 
-	Member selectOne(Member member);
+	public Member selectOne(Member member);
 
 
 }

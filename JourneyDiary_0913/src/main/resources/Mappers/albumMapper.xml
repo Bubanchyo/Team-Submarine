@@ -11,11 +11,4 @@
 		WHERE memberno = #{memberno}
 	</select>
 	
-	<select id="getPhotoList" parameterType="int" resultType="Photo">
-		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, memberno
-		FROM photo	
-		WHERE albumno = #{albumno}
-		ORDER BY photono
-	</select>
-
 </mapper>

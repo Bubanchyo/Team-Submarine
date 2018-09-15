@@ -11,6 +11,4 @@ public interface AlbumMapper {
 
 	ArrayList<Album> getAlbumList(int memberno);
 
-
-
 }

@@ -6,7 +6,7 @@
 <mapper namespace="journey.diary.test.DAO.PhotoMapper">
 
 <!--  -->
-	<select id="selectOnePhoto" parameterType="int" resultType="Photo">
+	<select id="getOnePhoto" parameterType="int" resultType="Photo">
 		SELECT 
 			photono,
 			albumno,
@@ -15,7 +15,7 @@
 			photocontent,
 			keyword,
 			TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel,
-		<!-- 왜?<if test="lat != null"> -->
+		<!-- <if test="lat != null"> -->
 			lat,
 			lng,
 		<!-- </if> -->
@@ -102,6 +102,13 @@
 	<select id="getBestPHotos" parameterType="int" resultType="Photo">
 		SELECT * FROM photo
 		WHERE albumno = #{albumno}
+	</select>
+
+
+	<select id="getPhotoList" parameterType="int" resultType="Photo">
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, memberno
+		FROM photo	
+		ORDER BY photono
 	</select>
 	
 </mapper>
