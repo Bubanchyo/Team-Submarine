@@ -3,14 +3,18 @@ package journey.diary.test.VO;
 public class Photo {
 	private int photono;
 	private int albumno;
+	private int userno;
 	private String privacy;
 	private String photoimg;
 	private String photocontent;
 	private String keyword;
+	private String landmark;
+	private String hashtag;
 	private String dateoftravel;
 	private String lat;
 	private String lng;
-	private int memberno;
+	private int hitcount;
+	private int likecount;
 
 	public Photo() {
 	}
@@ -29,6 +33,14 @@ public class Photo {
 
 	public void setAlbumno(int albumno) {
 		this.albumno = albumno;
+	}
+
+	public int getUserno() {
+		return userno;
+	}
+
+	public void setUserno(int userno) {
+		this.userno = userno;
 	}
 
 	public String getPrivacy() {
@@ -63,6 +75,22 @@ public class Photo {
 		this.keyword = keyword;
 	}
 
+	public String getLandmark() {
+		return landmark;
+	}
+
+	public void setLandmark(String landmark) {
+		this.landmark = landmark;
+	}
+
+	public String getHashtag() {
+		return hashtag;
+	}
+
+	public void setHashtag(String hashtag) {
+		this.hashtag = hashtag;
+	}
+
 	public String getDateoftravel() {
 		return dateoftravel;
 	}
@@ -87,21 +115,31 @@ public class Photo {
 		this.lng = lng;
 	}
 
-	public int getMemberno() {
-		return memberno;
+	public int getHitcount() {
+		return hitcount;
 	}
 
-	public void setMemberno(int memberno) {
-		this.memberno = memberno;
+	public void setHitcount(int hitcount) {
+		this.hitcount = hitcount;
+	}
+
+	public int getLikecount() {
+		return likecount;
+	}
+
+	public void setLikecount(int likecount) {
+		this.likecount = likecount;
 	}
 
 	@Override
 	public String toString() {
-		return "Photo [photono=" + photono + ", albumno=" + albumno + ", privacy=" + privacy + ", photoimg=" + photoimg
-				+ ", photocontent=" + photocontent + ", keyword=" + keyword + ", dateoftravel=" + dateoftravel
-				+ ", lat=" + lat + ", lng=" + lng + ", memberno=" + memberno + "]";
+		return "Photo [photono=" + photono + ", albumno=" + albumno + ", userno=" + userno + ", privacy=" + privacy
+				+ ", photoimg=" + photoimg + ", photocontent=" + photocontent + ", keyword=" + keyword + ", landmark="
+				+ landmark + ", hashtag=" + hashtag + ", dateoftravel=" + dateoftravel + ", lat=" + lat + ", lng=" + lng
+				+ ", hitcount=" + hitcount + ", likecount=" + likecount + "]";
 	}
 
+	
 	
 	
 }

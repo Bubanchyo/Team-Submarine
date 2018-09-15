@@ -6,13 +6,13 @@
 <mapper namespace="journey.diary.test.DAO.AlbumMapper">
 
 	<select id="getAlbumList" parameterType="int" resultType="Album">
-		SELECT albumno, albumtitle, albumintro, albumimg, startdate, enddate, memberno
+		SELECT albumno, albumtitle, albumintro, albumimg, startdate, enddate, userno
 		FROM album
-		WHERE memberno = #{memberno}
+		WHERE userno = #{userno}
 	</select>
 	
 	<select id="getPhotoList" parameterType="int" resultType="Photo">
-		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, memberno
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, userno
 		FROM photo	
 		WHERE albumno = #{albumno}
 		ORDER BY photono

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import journey.diary.test.DAO.MemberMapper;
-import journey.diary.test.VO.Member;
+import journey.diary.test.DAO.UserMapper;
+import journey.diary.test.VO.User;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
-public class MemberController {
+public class UserController {
 	
 	@Autowired
 	SqlSession sqlSession;
@@ -31,12 +31,12 @@ public class MemberController {
 	public String registerForm() {
 
 		
-		return "member/register";
+		return "user/register";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(Member member, String confirmUserpassword, Model model) {
-		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+	public String register(User member, String confirmUserpassword, Model model) {
+		UserMapper memberMapper = sqlSession.getMapper(UserMapper.class);
 		
 		int result = 0;
 		result = memberMapper.registerMember(member);
@@ -56,9 +56,9 @@ public class MemberController {
 	public @ResponseBody String checkEmail(@RequestParam("useremail") String useremail, HttpServletResponse response) throws Exception{
 			System.out.println("ajax data useremail???" + useremail);
 			
-			MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			int result = 0;
-			result = memberMapper.checkEmail(useremail);
+			result = userMapper.checkEmail(useremail);
 			System.out.println("email check result: " + result);
 			
 			if(result == 1) return "1";
@@ -71,7 +71,7 @@ public class MemberController {
 	public String logInForm() {
 
 		
-		return "member/logIn";
+		return "user/logIn";
 	}
 	
 	 //log In
@@ -79,18 +79,18 @@ public class MemberController {
 		public String logIn(String useremail, String userpassword, HttpSession session, Model model) {
 			
 			System.out.println("login 정보???" + useremail + "&&&" + userpassword);
-			Member member = new Member();
+			User member = new User();
 			member.setUseremail(useremail);
 			member.setUserpassword(userpassword);
-			MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
-			Member m = memberMapper.selectOne(member);
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			User m = userMapper.selectOne(member);
 			
 			System.out.println("member DB에서 받아옴??" + m);
 			
 			if(m != null) {
 				session.setAttribute("useremail", m.getUseremail());
 				session.setAttribute("username", m.getUsername());
-				session.setAttribute("memberno", m.getMemberno());
+				session.setAttribute("memberno", m.getUserno());
 				return "redirect:/";
 				
 			}else {

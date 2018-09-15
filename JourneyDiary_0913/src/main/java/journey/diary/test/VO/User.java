@@ -1,7 +1,7 @@
 package journey.diary.test.VO;
 
-public class Member {
-	private int memberno;
+public class User {
+	private int userno;
 	private String useremail;
 	private String username;
 	private String userpassword;
@@ -9,33 +9,19 @@ public class Member {
 	private String logdate;
 	private String approvalstatus;
 	private int approvalkey;
-	private String nickname;
+	private String userimg;
 	private String gender;
+	private String stamp;
 
-	public Member() {
+	public User() {
 	}
 
-	public Member(int memberno, String useremail, String username, String userpassword, String regdate, String logdate,
-			String approvalstatus, int approvalkey, String nickname, String gender) {
-		super();
-		this.memberno = memberno;
-		this.useremail = useremail;
-		this.username = username;
-		this.userpassword = userpassword;
-		this.regdate = regdate;
-		this.logdate = logdate;
-		this.approvalstatus = approvalstatus;
-		this.approvalkey = approvalkey;
-		this.nickname = nickname;
-		this.gender = gender;
+	public int getUserno() {
+		return userno;
 	}
 
-	public int getMemberno() {
-		return memberno;
-	}
-
-	public void setMemberno(int memberno) {
-		this.memberno = memberno;
+	public void setUserno(int userno) {
+		this.userno = userno;
 	}
 
 	public String getUseremail() {
@@ -94,12 +80,12 @@ public class Member {
 		this.approvalkey = approvalkey;
 	}
 
-	public String getNickname() {
-		return nickname;
+	public String getUserimg() {
+		return userimg;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setUserimg(String userimg) {
+		this.userimg = userimg;
 	}
 
 	public String getGender() {
@@ -110,12 +96,21 @@ public class Member {
 		this.gender = gender;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [memberno=" + memberno + ", useremail=" + useremail + ", username=" + username
-				+ ", userpassword=" + userpassword + ", regdate=" + regdate + ", logdate=" + logdate
-				+ ", approvalstatus=" + approvalstatus + ", approvalkey=" + approvalkey + ", nickname=" + nickname
-				+ ", gender=" + gender + "]";
+	public String getStamp() {
+		return stamp;
 	}
 
+	public void setStamp(String stamp) {
+		this.stamp = stamp;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userno=" + userno + ", useremail=" + useremail + ", username=" + username + ", userpassword="
+				+ userpassword + ", regdate=" + regdate + ", logdate=" + logdate + ", approvalstatus=" + approvalstatus
+				+ ", approvalkey=" + approvalkey + ", userimg=" + userimg + ", gender=" + gender + ", stamp=" + stamp
+				+ "]";
+	}
+
+	
 }

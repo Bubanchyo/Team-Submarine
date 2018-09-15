@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="journey.diary.test.DAO.MemberMapper">
+<mapper namespace="journey.diary.test.DAO.UserMapper">
 
 
 	<!-- 이메일 중복 검사 -->
@@ -11,10 +11,10 @@
 		SELECT count(*) from member where useremail = #{useremail}
 	</select>
 	
-	<insert id="registerMember" parameterType="Member">
-		INSERT INTO member
+	<insert id="registerMember" parameterType="User">
+		INSERT INTO users
 		(
-			memberno
+			userrno
 		  , useremail
 		  , username
 		  , userpassword
@@ -32,11 +32,11 @@
 		)
 	</insert>
 	
-    <select id="selectOne" parameterType="Member" resultType="Member">
-		SELECT memberno
+    <select id="selectOne" parameterType="User" resultType="User">
+		SELECT userno
 		  , useremail
 		  , username
-		FROM member
+		FROM users
 		WHERE useremail= #{useremail}
 		<if test="userpassword!=null">
 		and userpassword = #{userpassword}

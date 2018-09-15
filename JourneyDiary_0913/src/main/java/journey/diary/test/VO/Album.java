@@ -2,12 +2,14 @@ package journey.diary.test.VO;
 
 public class Album {
 	private int albumno;
+	private int userno;
 	private String albumtitle;
 	private String albumintro;
+	private String privacy;
 	private String albumimg;
 	private String startdate;
 	private String enddate;
-	private int memberno;
+	private String regdate;
 	
 	public Album() {
 		
@@ -19,6 +21,14 @@ public class Album {
 
 	public void setAlbumno(int albumno) {
 		this.albumno = albumno;
+	}
+
+	public int getUserno() {
+		return userno;
+	}
+
+	public void setUserno(int userno) {
+		this.userno = userno;
 	}
 
 	public String getAlbumtitle() {
@@ -35,6 +45,14 @@ public class Album {
 
 	public void setAlbumintro(String albumintro) {
 		this.albumintro = albumintro;
+	}
+
+	public String getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(String privacy) {
+		this.privacy = privacy;
 	}
 
 	public String getAlbumimg() {
@@ -61,19 +79,22 @@ public class Album {
 		this.enddate = enddate;
 	}
 
-	public int getMemberno() {
-		return memberno;
+	public String getRegdate() {
+		return regdate;
 	}
 
-	public void setMemberno(int memberno) {
-		this.memberno = memberno;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 
 	@Override
 	public String toString() {
-		return "Album [albumno=" + albumno + ", albumtitle=" + albumtitle + ", albumintro=" + albumintro + ", albumimg="
-				+ albumimg + ", startdate=" + startdate + ", enddate=" + enddate + ", memberno=" + memberno + "]";
+		return "Album [albumno=" + albumno + ", userno=" + userno + ", albumtitle=" + albumtitle + ", albumintro="
+				+ albumintro + ", privacy=" + privacy + ", albumimg=" + albumimg + ", startdate=" + startdate
+				+ ", enddate=" + enddate + ", regdate=" + regdate + "]";
 	}
+
+
 	
 	
 }

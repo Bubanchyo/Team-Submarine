@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import journey.diary.test.DAO.AlbumMapper;
-import journey.diary.test.DAO.MemberMapper;
+import journey.diary.test.DAO.UserMapper;
 import journey.diary.test.VO.Album;
-import journey.diary.test.VO.Member;
+import journey.diary.test.VO.User;
 
 /**
  * Handles requests for the application home page.
