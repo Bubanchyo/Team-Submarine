@@ -235,12 +235,13 @@ h6 {
 }
 
  #bottomnav {
+   padding: 10px 0 10px 0;
    position:fixed;
    left:0px;
    bottom:0px;
-   height:60px;
-   width:100%;
-   background:#EE7785;
+   height:80px;
+   max-width:100%;
+   background:#1D809F;
 }
 #bottomnav p {
    text-align: center;
