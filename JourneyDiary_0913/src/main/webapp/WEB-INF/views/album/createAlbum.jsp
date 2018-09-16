@@ -52,6 +52,7 @@
 				$('#imagePreview').fadeIn(650);
 			}
 			reader.readAsDataURL(input.files[0]);
+			
 		}
 	}
 	$("#imageUpload").change(function() {

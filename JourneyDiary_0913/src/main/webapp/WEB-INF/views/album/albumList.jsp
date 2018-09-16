@@ -79,13 +79,12 @@
         <div class="row no-gutters">
 				<c:forEach var="Album" items="${albumList}">
 					<div class="col-lg-6">
-						<a class="portfolio-item" href="photoList"> <span
+						<a class="portfolio-item" href="photoList?albumno=${Album.albumno}"> <span
 							class="caption"> <span class="caption-content">
 									<h2>${Album.albumtitle}</h2>
 									<p class="mb-0">${Album.albumintro}</p>
 							</span>
-						</span> <img class="img-fluid" src="${Album.albumimg}"
-							style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="">
+						</span> <img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="">
 						</a>
 					</div>
 				</c:forEach>

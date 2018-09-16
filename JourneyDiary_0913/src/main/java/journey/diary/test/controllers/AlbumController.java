@@ -2,6 +2,7 @@ package journey.diary.test.controllers;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import journey.diary.test.DAO.AlbumMapper;
 import journey.diary.test.DAO.PhotoMapper;
 import journey.diary.test.VO.Album;
+import journey.diary.test.VO.Photo;
 import journey.diary.test.VO.Uploadimage;
 
 /**
@@ -29,6 +31,10 @@ public class AlbumController {
 	@Autowired
 	SqlSession sqlSession;
 		
+	String ALBUMUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
+	String LINKPATH = "./resources/img/album/";
+	
+	
 		@RequestMapping(value = "/showAlbum", method = RequestMethod.GET)
 		public String intro(Locale locale, Model model, HttpSession session) {
 			
@@ -40,7 +46,8 @@ public class AlbumController {
 			albumList = albumMapper.getAlbumList(userno);
 
 			model.addAttribute("albumList", albumList);
-
+			model.addAttribute("albumsrc", LINKPATH);
+			
 			return "album/albumList";
 
 		}
@@ -52,8 +59,7 @@ public class AlbumController {
 
 		}
 		
-		String ALBUMUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
-		String LINKPATH = "./resources/img/album/";
+		
 		@RequestMapping(value = "/createAlbum", produces = "application/text; charset=utf8", method = RequestMethod.POST)
 		public String makeAlbum(HttpSession session, Album album, MultipartFile uploadfile) {
 			
@@ -83,7 +89,20 @@ public class AlbumController {
 			album.setAlbumimg(saveFileName);
 			
 			albumMapper.createAlbum(album);
-			return "album/createAlbum";
+			return "redirect:/showAlbum";
+
+		}
+		
+		
+		@RequestMapping(value = "/photoList", method = RequestMethod.GET)
+		public String photoList(Locale locale, Model model, HttpSession session, int albumno) {
+			
+			PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
+			List<Photo> photoList = manager.getAlbumPhoto(albumno);
+			
+			model.addAttribute("photoList", photoList);
+			
+			return "photo/photoList";
 
 		}
 		

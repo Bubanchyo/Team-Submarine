@@ -135,21 +135,21 @@
   </ol>
   <div class="carousel-inner">
     <<div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
-      <img class="d-block w-100" src="./resources/img/portfolio-1.jpg" alt="첫번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
+      <img class="d-block w-100" src="./resources/img/templates/portfolio-1.jpg" alt="첫번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div>
     </div>
    <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
-      <img class="d-block w-100" src="./resources/img/portfolio-2.jpg" alt="두번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
+      <img class="d-block w-100" src="./resources/img/templates/portfolio-2.jpg" alt="두번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div>
     </div>
     <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
-      <img class="d-block w-100" src="./resources/img/portfolio-3.jpg" alt="세번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
+      <img class="d-block w-100" src="./resources/img/templates/portfolio-3.jpg" alt="세번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
