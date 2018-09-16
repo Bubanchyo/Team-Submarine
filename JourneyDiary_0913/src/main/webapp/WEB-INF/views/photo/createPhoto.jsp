@@ -491,6 +491,13 @@ var infowindow;
 		
 		</div>
 	</section>
+	
+	<!-- Call to Action -->
+		<section class="content-section bg-primary text-white">
+			<div id="bottomnav" class="container text-center">
+				<button type="submit" class="btn btn-primary">CONFIRM</button>
+			</div>
+		</section>
 
 	</form>	
 

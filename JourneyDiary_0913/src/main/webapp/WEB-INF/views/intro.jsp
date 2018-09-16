@@ -41,7 +41,7 @@
 
 <body id="page-top">
 
-	<!-- Navigation -->
+		<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
 	</a>
 	<!-- Navigation -->

@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>Journey Diary</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -88,29 +88,39 @@
 <body>
 
 
-  <!-- Navigation -->
-    <a class="menu-toggle rounded" href="#" style="padding: 16px;">
-      <i class="fas fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="/">Start Bootstrap</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="intro">About</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="register">Register</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="logIn">Log In</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Search</a>
-        </li>
-      </ul>
-    </nav>
+ 	<!-- Navigation -->
+	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
+	</a>
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand">
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="intro">About</a>
+			</li>
+			<c:if test="${sessionScope.username == null}">
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="register">Register</a>
+				</li>
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="logIn">Log In</a>
+				</li>
+				
+			</c:if>
+			<c:if test="${sessionScope.username != null}">
+        		<li class="sidebar-nav-item">
+          			<a class="js-scroll-trigger" href="logout">Log Out</a>
+        		</li>
+        		<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
+				</li>
+        	</c:if>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="search">Search</a>
+			</li>
+		</ul>
+	</nav>
 
 <br><br><br>
 

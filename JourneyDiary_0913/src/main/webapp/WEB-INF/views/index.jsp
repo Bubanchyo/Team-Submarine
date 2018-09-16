@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>- Start Bootstrap Template</title>
+<title> Journey Diary</title>
 
 <!-- jQuery library -->
 <script

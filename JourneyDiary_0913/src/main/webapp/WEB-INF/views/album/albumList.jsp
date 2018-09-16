@@ -87,11 +87,13 @@
 				<c:forEach var="Album" items="${albumList}">
 					<div class="col-lg-6">
 						<a class="portfolio-item" href="photoList?albumno=${Album.albumno}"> <span
-							class="caption"> <span class="caption-content">
+							class="caption"> 
+							<span class="caption-content">
 									<h2>${Album.albumtitle}</h2>
 									<p class="mb-0">${Album.albumintro}</p>
 							</span>
-						</span> <img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="Free For All">
+						</span> 
+						<img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="Free For All">
 						<a href="alterAlbum?albumno=${Album.albumno}" style="position: absolute; top: 60px; right: 160px; z-index: 100; color: #fff;">ALTER</a>
 						<a href="deleteAlbum?albumno=${Album.albumno}" style="position: absolute; top: 60px; right: 80px; z-index: 100; color: white;">DELETE</a>
 						</a>
