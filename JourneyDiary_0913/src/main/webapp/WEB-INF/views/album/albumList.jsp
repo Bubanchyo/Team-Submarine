@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>- Start Bootstrap Template</title>
+<title>Journey Diary</title>
 
 <!-- jQuery library -->
 <script
@@ -41,13 +41,13 @@
 
   <body id="page-top">
 
-	<!-- Navigation -->
+		<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
 	</a>
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand">
-				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
 			</li>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="intro">About</a>
@@ -70,11 +70,10 @@
 				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
-				<a class="js-scroll-trigger" href="#contact">Search</a>
+				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
 	</nav>
-
    
     <!-- Portfolio -->
     <section class="content-section" id="portfolio">
@@ -86,25 +85,29 @@
         <div class="row no-gutters">
 				<c:forEach var="Album" items="${albumList}">
 					<div class="col-lg-6">
-						<a class="portfolio-item" href="photoList?albumno=${Album.albumno}"> <span
-							class="caption"> <span class="caption-content">
+						<a class="portfolio-item" href="photoList?albumno=${Album.albumno}"> 
+						<span class="caption"> 
+								<span class="caption-content">
 									<h2>${Album.albumtitle}</h2>
 									<p class="mb-0">${Album.albumintro}</p>
-							</span>
-						</span> <img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="">
+								</span>
+						</span> 
+						
+						<img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="">
 						</a>
 					</div>
 				</c:forEach>
 			</div>
       </div>
     </section>
-
-		<!-- Call to Action -->
+    
+<!-- Call to Action -->
 		<section class="content-section bg-primary text-white">
 			<div id="bottomnav" class="container text-center">
-				<a href="createAlbum" class="btn btn-xl btn-light mr-4">CREATE ALBUM</a>
+				<button type="submit" class="btn btn-primary">CONFIRM</button>
 			</div>
 		</section>
+
 
 
     	<!-- Scroll to Top Button-->

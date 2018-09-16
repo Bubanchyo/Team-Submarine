@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>- Start Bootstrap Template</title>
+<title>Journey Diary</title>
 
 <!-- jQuery library -->
 <script
@@ -35,6 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
+
 <link href="./resources/css/createAlbum.css?ver=2" rel="stylesheet">
 
 </head>
@@ -61,39 +62,85 @@
 
 	$(function() {
 		//글자수 제한 수정해야 함. 
+		
+		$('#the_text').keyup(function() {
+		    
+			  var characterCount = $(this).val().length,
+			      current = $('#current_text'),
+			      maximum = $('#maximum'),
+			      theCount = $('#the-count');
+			    
+			  current.text(characterCount);
+			 
+			  
+			  /*This isn't entirely necessary, just playin around*/
+			  if (characterCount < 70) {
+			    current.css('color', '#666');
+			  }
+			  if (characterCount > 70 && characterCount < 90) {
+			    current.css('color', '#6d5555');
+			  }
+			  if (characterCount > 90 && characterCount < 100) {
+			    current.css('color', '#793535');
+			  }
+			  if (characterCount > 100 && characterCount < 120) {
+			    current.css('color', '#841c1c');
+			  }
+			  if (characterCount > 120 && characterCount < 139) {
+			    current.css('color', '#8f0001');
+			  }
+			  
+			  if (characterCount >= 140) {
+			    maximum.css('color', '#8f0001');
+			    current.css('color', '#8f0001');
+			    theCount.css('font-weight','bold');
+			  } else {
+			    maximum.css('color','#666');
+			    theCount.css('font-weight','normal');
+			  }
+			  
+			      
+			});
 
-		$('textarea').keyup(
-						function() {
-							var characterCount = $(this).val().length, current = $('#current'), maximum = $('#maximum'), theCount = $('#the-count');
 
-							current.text(characterCount);
-
-							/*This isn't entirely necessary, just playin around*/
-							if (characterCount < 70) {
-								current.css('color', '#666');
-							}
-							if (characterCount > 70 && characterCount < 90) {
-								current.css('color', '#6d5555');
-							}
-							if (characterCount > 90 && characterCount < 100) {
-								current.css('color', '#793535');
-							}
-							if (characterCount > 100 && characterCount < 120) {
-								current.css('color', '#841c1c');
-							}
-							if (characterCount > 120 && characterCount < 139) {
-								current.css('color', '#8f0001');
-							}
-
-							if (characterCount >= 140) {
-								maximum.css('color', '#8f0001');
-								current.css('color', '#8f0001');
-								theCount.css('font-weight', 'bold');
-							} else {
-								maximum.css('color', '#666');
-								theCount.css('font-weight', 'normal');
-							}
-						});
+		$('#the_textarea').keyup(function() {
+		    
+			  var characterCount = $(this).val().length,
+			      current = $('#current_textarea'),
+			      maximum = $('#maximum'),
+			      theCount = $('#the-count');
+			    
+			  current.text(characterCount);
+			 
+			  
+			  /*This isn't entirely necessary, just playin around*/
+			  if (characterCount < 70) {
+			    current.css('color', '#666');
+			  }
+			  if (characterCount > 70 && characterCount < 90) {
+			    current.css('color', '#6d5555');
+			  }
+			  if (characterCount > 90 && characterCount < 100) {
+			    current.css('color', '#793535');
+			  }
+			  if (characterCount > 100 && characterCount < 120) {
+			    current.css('color', '#841c1c');
+			  }
+			  if (characterCount > 120 && characterCount < 139) {
+			    current.css('color', '#8f0001');
+			  }
+			  
+			  if (characterCount >= 140) {
+			    maximum.css('color', '#8f0001');
+			    current.css('color', '#8f0001');
+			    theCount.css('font-weight','bold');
+			  } else {
+			    maximum.css('color','#666');
+			    theCount.css('font-weight','normal');
+			  }
+			  
+			      
+			});
 
 	});
 </script>
@@ -108,14 +155,13 @@
 
 <body id="page-top">
 
-	<!-- Navigation -->
-	<!-- Navigation -->
+		<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
 	</a>
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand">
-				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
 			</li>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="intro">About</a>
@@ -138,11 +184,10 @@
 				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
-				<a class="js-scroll-trigger" href="#contact">Search</a>
+				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
 	</nav>
-
 
 	<form action="createAlbum" method="POST" enctype="multipart/form-data">
 		<section class="content-section" id="portfolio">
@@ -165,19 +210,23 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Title</h4>
-						<input type="text" id="albumtitle" name="albumtitle" maxlength="50" placeholder="Start Typing…" autofocus/>
+						<textarea id="the_text" name="albumtitle" maxlength="50" placeholder="Start Typing…" autofocus></textarea>
+						<div id="the_count">
+							<span id="current_text">0</span> <span id="maximum">/ 50</span>
+						</div>
 					</div>
 				</div>
+				
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Introduction</h4>
 						<textarea id="the_textarea" name="albumintro" maxlength="300" placeholder="Start Typing…" autofocus></textarea>
 						<div id="the_count">
-							<span id="current">0</span> <span id="maximum">/ 300</span>
+							<span id="current_textarea">0</span> <span id="maximum">/ 300</span>
 						</div>
 					</div>
 				</div>
@@ -218,7 +267,7 @@
 	<br>
 	<br>
 
-		<!-- Call to Action -->
+<!-- Call to Action -->
 		<section class="content-section bg-primary text-white">
 			<div id="bottomnav" class="container text-center">
 				<button type="submit" class="btn btn-primary">CONFIRM</button>

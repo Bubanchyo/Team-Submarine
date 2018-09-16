@@ -41,21 +41,37 @@
 
 <body id="page-top">
 
-	<!-- Navigation -->
+		<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
 	</a>
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
-			<li class="sidebar-brand"><a class="js-scroll-trigger" href="index">Start Bootstrap</a></li>
+			<li class="sidebar-brand">
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="intro">About</a>
+			</li>
 			<c:if test="${sessionScope.username == null}">
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="register">Register</a></li>
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="logIn">Log In</a></li>
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="register">Register</a>
+				</li>
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="logIn">Log In</a>
+				</li>
+				
 			</c:if>
 			<c:if test="${sessionScope.username != null}">
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="logout">Logout</a></li>
-			</c:if>
-			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#contact">Search</a></li>
+        		<li class="sidebar-nav-item">
+          			<a class="js-scroll-trigger" href="logout">Log Out</a>
+        		</li>
+        		<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
+				</li>
+        	</c:if>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="search">Search</a>
+			</li>
 		</ul>
 	</nav>
 

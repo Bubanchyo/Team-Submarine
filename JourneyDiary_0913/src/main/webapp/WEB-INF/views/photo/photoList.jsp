@@ -47,7 +47,7 @@
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand">
-				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
 			</li>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="intro">About</a>
@@ -70,11 +70,10 @@
 				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
-				<a class="js-scroll-trigger" href="#contact">Search</a>
+				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
 	</nav>
-
    
     <!-- Portfolio -->
     <section class="content-section" id="portfolio">
@@ -102,11 +101,12 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="content-section bg-primary text-white">
-      <div class="container text-center" >
-        <a href="createPhoto" class="btn btn-xl btn-light mr-4">CREATE PHOTO</a>
-      </div>
-    </section>
+    	<section class="content-section bg-primary text-white">
+			<div id="bottomnav" class="container text-center">
+				<a class="btn btn-primary btn-xl js-scroll-trigger" href="showAlbum">My
+					Journey Diary</a>
+			</div>
+		</section>
 
  
 
