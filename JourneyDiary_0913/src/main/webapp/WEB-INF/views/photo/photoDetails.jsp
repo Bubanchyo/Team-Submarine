@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,6 +10,47 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Custom CSS
+<link href="./resources/css/photoDetails.css" rel="stylesheet">
+	-->
+
+<style>
+body {
+	font: 400 15px/1.8 Lato, sans-serif;
+	color: #777;
+}
+
+h3, h4 {
+	margin: 10px 0 30px 0;
+	letter-spacing: 10px;
+	font-size: 20px;
+	color: #111;
+}
+
+.container {
+	padding: 80px 120px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
+.text-faded {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.img {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+.img:hover {
+      border-color: #f1f1f1;
+  }
+</style>
 <script>
 	var map;
 	var markers = [];
@@ -86,41 +127,86 @@
 	console.log(('${photoDetail.keyword}'.match(/#/g) || []).length);
 </script>
 
-<body>
-<h1>photoDetails view</h1>
+<body id="page-top">
 
-	<div>
-		<img id="img" style="width: 500px; height: 375px" src="${photoDetail.photoimg}"/>
+	<!-- Navigation -->
+	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
+	</a>
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand">
+				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="intro">About</a>
+			</li>
+			<c:if test="${sessionScope.username == null}">
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="register">Register</a>
+				</li>
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="logIn">Log In</a>
+				</li>
+				
+			</c:if>
+			<c:if test="${sessionScope.username != null}">
+        		<li class="sidebar-nav-item">
+          			<a class="js-scroll-trigger" href="logout">Log Out</a>
+        		</li>
+        		<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
+				</li>
+        	</c:if>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="#contact">Search</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<h1>photoDetails view</h1>
+
+		<div>
+			<img  class="img" id="img" style="width: 500px; height: 375px"
+				src="${photoDetail.photoimg}" />
+		</div>
+
+		<input class="privacy" type="radio" name="privacy" value="공개"
+			checked="checked">공개 <input class="privacy" type="radio"
+			name="privacy" value="비공개">비공개<br>
+		<textarea name="photocontent" rows="10" cols="90" style="resize: none">${photoDetail.photocontent}</textarea>
+		<!-- 이곳부터 시작하셔야합니다. 해시태그 자르기를 해야함.... -->
+		<div id="hashtag">
+			<a href="#">${photoDetail.keyword}</a>
+		</div>
+		<input type="date" name="dateoftravel"
+			value="${photoDetail.dateoftravel}">
+
+		<c:if test="${photoDetail.lat != null}">
+			<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
+			<input id="pac-input" class="controls" type="hidden">
+			<div id="infowindow-content"></div>
+			<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABYid41RaVrQL5pT8XhbZcRo3ss-MYG2w&libraries=places&callback=initMap"></script>
+		</c:if>
+
+		<form id="insertPosition" action="insertPosition" method="POST">
+			<input id="insertPos" type="hidden" name="photono">
+		</form>
+		<form id="updatePhoto" action="updatePhoto" method="POST">
+			<input id="updateNo" type="hidden" name="photono">
+		</form>
+		<form id="deletePhoto" action="deletePhoto" method="POST">
+			<input id="deleteNo" type="hidden" name="photono">
+		</form>
+
+		<input type="button" value="위치정보추가"
+			onclick="insertPosition(${photoDetail.photono})"> <input
+			type="button" value="수정"
+			onclick="updatePhoto(${photoDetail.photono})"> <input
+			type="button" value="삭제"
+			onclick="deletePhoto(${photoDetail.photono})">
 	</div>
-
-	<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개 
-	<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
-	<textarea name="photocontent" rows="10" cols="90" style="resize: none">${photoDetail.photocontent}</textarea>
-	<!-- 이곳부터 시작하셔야합니다. 해시태그 자르기를 해야함.... -->
-	<div id="hashtag"><a href="#">${photoDetail.keyword}</a></div>
-	<input type="date" name="dateoftravel" value="${photoDetail.dateoftravel}"> 
-
-	<c:if test="${photoDetail.lat != null}">
-	<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
-    <input id="pac-input" class="controls" type="hidden">
-    <div id="infowindow-content"></div>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABYid41RaVrQL5pT8XhbZcRo3ss-MYG2w&libraries=places&callback=initMap"></script>
-	</c:if>
-
-	<form id="insertPosition" action="insertPosition" method="POST">
-		<input id="insertPos" type="hidden" name="photono">
-	</form>
-	<form id="updatePhoto" action="updatePhoto" method="POST">
-		<input id="updateNo" type="hidden" name="photono">
-	</form>
-	<form id="deletePhoto" action="deletePhoto" method="POST">
-		<input id="deleteNo" type="hidden" name="photono">
-	</form>
-	
-	<input type="button" value="위치정보추가" onclick="insertPosition(${photoDetail.photono})">
-	<input type="button" value="수정" onclick="updatePhoto(${photoDetail.photono})">
-	<input type="button" value="삭제" onclick="deletePhoto(${photoDetail.photono})">
-
 </body>
 </html>
 

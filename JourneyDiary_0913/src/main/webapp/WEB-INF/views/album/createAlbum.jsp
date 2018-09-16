@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/createAlbum.css" rel="stylesheet">
+<link href="./resources/css/createAlbum.css?ver=2" rel="stylesheet">
 
 </head>
 
@@ -60,7 +60,7 @@
 
 	$(function() {
 		//글자수 제한 수정해야 함. 
-		$('#albumtitle')
+		$('textarea')
 				.keyup(
 						function() {
 							var characterCount = $(this).val().length, current = $('#current'), maximum = $('#maximum'), theCount = $('#the-count');
@@ -96,6 +96,12 @@
 
 	});
 </script>
+
+<style>
+	textarea{
+		border: 1px solid black;
+	}
+</style>
 
 </head>
 
@@ -147,18 +153,14 @@
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Title</h4>
-						<textarea name="the-textarea" id="albumtitle" name="albumtitle"
-							maxlength="50" placeholder="Start Typin…" autofocus></textarea>
-						<div id="the_count">
-							<span id="current">0</span> <span id="maximum">/ 50</span>
-						</div>
+						<input type="text" id="albumtitle" name="albumtitle" maxlength="50" placeholder="Start Typing…" autofocus/>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Introduction</h4>
 						<textarea name="the-textarea" id="the_textarea" name="albumintro"
-							maxlength="300" placeholder="Start Typin…" autofocus></textarea>
+							maxlength="300" placeholder="Start Typing…" autofocus></textarea>
 						<div id="the_count">
 							<span id="current">0</span> <span id="maximum">/ 300</span>
 						</div>
@@ -181,8 +183,21 @@
 			</div>
 		</section>
 
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 		<!-- Call to Action -->
-		<section id="layer_fixed" class="content-section bg-primary text-white">
+		<section class="content-section bg-primary text-white">
 			<div id="bottomnav" class="container text-center">
 				<button type="submit" class="btn btn-primary">CONFIRM</button>
 			</div>
@@ -190,19 +205,6 @@
 
 
 	</form>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
 
 

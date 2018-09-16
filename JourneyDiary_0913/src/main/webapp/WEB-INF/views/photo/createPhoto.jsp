@@ -104,33 +104,39 @@ $(function(){
 
 <body id="page-top">
 
-<!-- Navigation -->
-    <a class="menu-toggle rounded" href="#">
-      <i class="fas fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">Services</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
+	<!-- Navigation -->
+	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
+	</a>
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand">
+				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="intro">About</a>
+			</li>
+			<c:if test="${sessionScope.username == null}">
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="register">Register</a>
+				</li>
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="logIn">Log In</a>
+				</li>
+				
+			</c:if>
+			<c:if test="${sessionScope.username != null}">
+        		<li class="sidebar-nav-item">
+          			<a class="js-scroll-trigger" href="logout">Log Out</a>
+        		</li>
+        		<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
+				</li>
+        	</c:if>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="#contact">Search</a>
+			</li>
+		</ul>
+	</nav>
 
 <form action="createAlbum" method="POST" enctype="multipart/form-data">
 	<section class="content-section" id="portfolio">
