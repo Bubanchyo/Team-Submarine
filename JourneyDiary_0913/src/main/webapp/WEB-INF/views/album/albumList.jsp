@@ -47,7 +47,7 @@
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand">
-				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
 			</li>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="intro">About</a>
@@ -70,7 +70,7 @@
 				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
-				<a class="js-scroll-trigger" href="#contact">Search</a>
+				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
 	</nav>
@@ -91,7 +91,9 @@
 									<h2>${Album.albumtitle}</h2>
 									<p class="mb-0">${Album.albumintro}</p>
 							</span>
-						</span> <img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="">
+						</span> <img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="Free For All">
+						<a href="alterAlbum?albumno=${Album.albumno}" style="position: absolute; top: 30px; right: 130px; z-index: 100; color: #fff;">ALTER</a>
+						<a href="deleteAlbum?albumno=${Album.albumno}" style="position: absolute; top: 30px; right: 50px; z-index: 100; color: white;">DELETE</a>
 						</a>
 					</div>
 				</c:forEach>

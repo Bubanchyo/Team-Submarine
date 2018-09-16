@@ -91,11 +91,17 @@
 <h1>photos view</h1>
 
 	<div>
-		<img id="img" style="max-width: 500px; max-height: 375px; width: 100%; height: 100%; object-fit: contain;" src="${photo.photoimg}"/>
+		<img id="img" style="max-width: 500px; max-height: 375px; width: 100%; height: 100%; object-fit: contain;" src="${Photosrc}${photo.photoimg}"/>
 	</div>
 
-	<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개 
-	<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
+	<c:if test="${photo.privacy eq 'public'}">
+		<input class="privacy" type="radio" name="privacy" value="public" checked="checked">공개 
+		<input class="privacy" type="radio" name="privacy" value="private">비공개<br>
+	</c:if>
+	<c:if test="${photo.privacy eq 'private'}">
+		<input class="privacy" type="radio" name="privacy" value="public">공개 
+		<input class="privacy" type="radio" name="privacy" value="private" checked="checked">비공개<br>
+	</c:if>
 	<textarea name="photocontent" rows="10" cols="90" style="resize: none">${photo.photocontent}</textarea>
 	<!-- 이곳부터 시작하셔야합니다. 해시태그 자르기를 해야함.... -->
 	<div id="hashtag"><a href="#">${photo.hashtag}</a></div>

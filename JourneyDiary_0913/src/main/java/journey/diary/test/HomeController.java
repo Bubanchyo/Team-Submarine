@@ -18,13 +18,17 @@ public class HomeController {
 	@Autowired
 	SqlSession sqlSession;
 	
-	
+	String PHOTOUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\photo\\";
+	String ALBUMUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
+	String PHOTOLINKPATH = "./resources/img/photo/";
+	String ALBUMLINKPATH = "./resources/img/album/";
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
 		PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
 		List<Photo> photoList = manager.getPhotoList();
+		model.addAttribute("Photosrc", PHOTOLINKPATH);
 		model.addAttribute("photoList", photoList);
 		
 		return "index";
@@ -32,6 +36,11 @@ public class HomeController {
 	
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String goindex(Locale locale, Model model) {
+		
+		PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
+		List<Photo> photoList = manager.getPhotoList();
+		model.addAttribute("Photosrc", PHOTOLINKPATH);
+		model.addAttribute("photoList", photoList);
 		
 		return "index";
 	}

@@ -47,6 +47,7 @@
 			if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) 
 			{ 
 				$('.carousel-item').css('max-height', '200px');
+				$('.portfolio-item').css('max-height', '200px');
 			}
 		}
 	});
@@ -63,7 +64,7 @@
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand">
-				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
 			</li>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="intro">About</a>
@@ -86,11 +87,11 @@
 				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
-				<a class="js-scroll-trigger" href="#contact">Search</a>
+				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
 	</nav>
-
+	
 	<!-- Header -->
 	<header class="masthead d-flex">
 		<div class="container text-center my-auto">
@@ -134,7 +135,7 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <<div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
+    <div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
       <img class="d-block w-100" src="./resources/img/templates/portfolio-1.jpg" alt="첫번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
       <div class="carousel-caption">
           <h3>Chicago</h3>
@@ -250,7 +251,7 @@
 									<p class="mb-0">${Photo.photocontent}</p>
 								</span>
 							</span>
-							<img class="img-fluid" src="${Photo.photoimg}" alt="" style='object-fit: cover; height: 100%; width: 100%; max-width: 100%;'>
+							<img class="img-fluid" src="${Photosrc}${Photo.photoimg}" alt="" style='object-fit: cover; height: 100%; width: 100%; max-width: 100%;'>
 						</a>
 					</div>
 				</c:forEach>

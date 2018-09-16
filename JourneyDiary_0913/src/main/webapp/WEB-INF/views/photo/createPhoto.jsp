@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/createAlbum.css" rel="stylesheet">
+<link href="./resources/css/createPhoto.css" rel="stylesheet">
 
 </head>
 
@@ -44,7 +44,7 @@
 <script type="text/javascript">
 	$(function(){
 		//글자수 제한 수정해야 함. 
-		$('#albumtitle').keyup(function() {
+		$('#the_textarea').keyup(function() {
 		  var characterCount = $(this).val().length,
 		      current = $('#current'),
 		      maximum = $('#maximum'),
@@ -397,7 +397,7 @@ var infowindow;
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand">
-				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+				<a class="js-scroll-trigger" href="index">Journey Diary</a>
 			</li>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="intro">About</a>
@@ -420,7 +420,7 @@ var infowindow;
 				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
-				<a class="js-scroll-trigger" href="#contact">Search</a>
+				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
 	</nav>
@@ -446,12 +446,15 @@ var infowindow;
 			</div>
 			
 			<div class="form-group">
-				<h5>Privacy</h5>
-				<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개 
-				<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
+				<div class="wrapper">					
+					<h5>Privacy</h5>
+					<input class="privacy" type="radio" name="privacy" value="public" checked="checked">공개 
+					<input class="privacy" type="radio" name="privacy" value="private">비공개<br>
+				</div>
 			</div>
 			<div class="form-group">
 				<div class="wrapper">
+					<h5>Photo Content</h5>
 					<textarea id="the_textarea" name="photocontent" maxlength="300" placeholder="Start Typin…"  rows="10" cols="auto" style="resize: none" autofocus></textarea>
   					<div id="the_count">
     					<span id="current">0</span>
@@ -461,22 +464,26 @@ var infowindow;
 			</div>
 			<input type="hidden" id="landmark" name="landmark">
 			<div class="form-group">
-				<h5>HashTag</h5>
-				<input class="form-control" type="text" name="hashtag" placeholder="hashtag">
+				<div class="wrapper">
+					<h5>HashTag</h5>
+					<input class="form-control" type="text" name="hashtag" placeholder="hashtag">
+				</div>	
 			</div>
 			<input type="hidden" name="albumno" value="${albumno}"><br>
 			<input type="hidden" id="photoimg" name="photoimg">
 			<input type="hidden" id="lat" name="lat">
 			<input type="hidden" id="lng" name="lng">
-			<div class="card my-4">
-				<div class="form-group">
-					<h5">Date Of Travel</h5>
+			<div class="form-group">
+				<div class="wrapper">
+					<h5>Date Of Travel</h5>
 					<input class="form-control"  type="date" name="dateoftravel">
 				</div>
 			</div>
 			<div class="form-group">
 			<div id="search"></div>
-			<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
+			<div class="wrapper">
+				<div id="map" class="form-group" style="width: 650px; height: 350px; display: block;">지도</div>
+			</div>
 			<div id="upResult2"></div>
 			<input id="pac-input" class="controls" type="hidden">
 			<div id="infowindow-content"></div>
@@ -486,13 +493,10 @@ var infowindow;
 	</section>
 
 	</form>	
-	<section>
-		<div id="nav-bottom">
-			<div>
-				<button type="button" class="btn btn-primary" onclick="posting()">Confirm</button>
-			</div>
-		</div>
-	</section>
+
+	<div id="bottomnav" class="container text-center" >
+		<button type="button" class="btn btn-xl btn-light mr-4" onclick="posting()">Confirm</button>
+	</div>
 	
 	<br><br><br><br><br><br><br><br><br><br><br><br>
 

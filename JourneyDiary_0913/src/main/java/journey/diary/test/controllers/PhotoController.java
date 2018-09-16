@@ -44,6 +44,11 @@ public class PhotoController {
 	@Autowired
 	SqlSession sqlSession;
 	
+
+	String PHOTOUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\photo\\";
+	String ALBUMUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
+	String PHOTOLINKPATH = "./resources/img/photo/";
+	String ALBUMLINKPATH = "./resources/img/album/";
 		
 	@RequestMapping(value = "/createPhoto", method = RequestMethod.GET)
 	public String createPhoto(Model model, int albumno) {
@@ -62,8 +67,6 @@ public class PhotoController {
 	}
 	
 	
-	String PHOTOUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\photo\\";
-	String LINKPATH = "./resources/img/photo/";
 	@RequestMapping(value = "/ajaximage", produces = "application/text; charset=utf8", method = RequestMethod.POST)
 	public @ResponseBody String ajaximage(MultipartFile uploadfile) {
 
@@ -84,14 +87,15 @@ public class PhotoController {
 			e.printStackTrace();
 		}
 
-		return LINKPATH + saveFileName;
+		return saveFileName;
 	}
 	
 	@RequestMapping(value = "/imageAnalysis", produces = "application/text; charset=utf8", method = RequestMethod.POST)
 	public @ResponseBody String imageAnalysis(String tempImg) {
 
-		String photo = tempImg.substring(LINKPATH.length(), tempImg.length());
-		photo = PHOTOUPLOADPATH + photo;
+		String photo = PHOTOUPLOADPATH + tempImg;
+		
+		System.out.println(photo);
 		
 		Map<String, String> landmark = null;
 		String landmarkLabel = "";
@@ -220,8 +224,8 @@ public class PhotoController {
 
 		String realPath = photo.getPhotoimg();
 		
-		String imgPath = realPath.substring(LINKPATH.length(), realPath.length());
-		photo.setPhotoimg(LINKPATH + imgPath);
+		String imgPath = realPath.substring(PHOTOLINKPATH.length(), realPath.length());
+		photo.setPhotoimg(PHOTOLINKPATH + imgPath);
 
 		
 		photoManager.photoUpload(photo);
@@ -254,6 +258,7 @@ public class PhotoController {
 		Photo photo = manager.selectOnePhoto(photono);
 		
 		model.addAttribute("photo", photo);
+		model.addAttribute("Photosrc", PHOTOLINKPATH);
 		
 		return "photo/photoDetails";
 	}

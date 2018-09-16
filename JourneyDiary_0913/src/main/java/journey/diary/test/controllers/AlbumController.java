@@ -31,8 +31,10 @@ public class AlbumController {
 	@Autowired
 	SqlSession sqlSession;
 		
+	String PHOTOUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\photo\\";
 	String ALBUMUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
-	String LINKPATH = "./resources/img/album/";
+	String PHOTOLINKPATH = "./resources/img/photo/";
+	String ALBUMLINKPATH = "./resources/img/album/";
 	
 	
 		@RequestMapping(value = "/showAlbum", method = RequestMethod.GET)
@@ -46,7 +48,7 @@ public class AlbumController {
 			albumList = albumMapper.getAlbumList(userno);
 
 			model.addAttribute("albumList", albumList);
-			model.addAttribute("albumsrc", LINKPATH);
+			model.addAttribute("albumsrc", ALBUMLINKPATH);
 			
 			return "album/albumList";
 
@@ -102,8 +104,27 @@ public class AlbumController {
 			
 			model.addAttribute("albumno", albumno);
 			model.addAttribute("photoList", photoList);
+			model.addAttribute("Photosrc", PHOTOLINKPATH);
 			
 			return "photo/photoList";
+
+		}
+		
+		
+		@RequestMapping(value = "/alterAlbum", method = RequestMethod.GET)
+		public String alterAlbum(Locale locale, Model model, HttpSession session, int albumno) {
+			
+				System.out.println(albumno);
+			return "album/albumList";
+
+		}
+		
+		
+		@RequestMapping(value = "/deleteAlbum", method = RequestMethod.GET)
+		public String deleteAlbum(Locale locale, Model model, HttpSession session, int albumno) {
+			
+				System.out.println(albumno);
+			return "album/albumList";
 
 		}
 		
