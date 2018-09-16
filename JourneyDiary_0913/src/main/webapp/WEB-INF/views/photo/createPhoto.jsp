@@ -58,46 +58,46 @@
 		readURL(this);
 	});
 	
-$(function(){
-	//글자수 제한 수정해야 함. 
-	$('#albumtitle').keyup(function() {
-	  var characterCount = $(this).val().length,
-	      current = $('#current'),
-	      maximum = $('#maximum'),
-	      theCount = $('#the-count');
-	    
-	  current.text(characterCount);
-	 
-	  
-	  /*This isn't entirely necessary, just playin around*/
-	  if (characterCount < 70) {
-	    current.css('color', '#666');
-	  }
-	  if (characterCount > 70 && characterCount < 90) {
-	    current.css('color', '#6d5555');
-	  }
-	  if (characterCount > 90 && characterCount < 100) {
-	    current.css('color', '#793535');
-	  }
-	  if (characterCount > 100 && characterCount < 120) {
-	    current.css('color', '#841c1c');
-	  }
-	  if (characterCount > 120 && characterCount < 139) {
-	    current.css('color', '#8f0001');
-	  }
-	  
-	  if (characterCount >= 140) {
-	    maximum.css('color', '#8f0001');
-	    current.css('color', '#8f0001');
-	    theCount.css('font-weight','bold');
-	  } else {
-	    maximum.css('color','#666');
-	    theCount.css('font-weight','normal');
-	  }
+	$(function(){
+		//글자수 제한 수정해야 함. 
+		$('#albumtitle').keyup(function() {
+		  var characterCount = $(this).val().length,
+		      current = $('#current'),
+		      maximum = $('#maximum'),
+		      theCount = $('#the-count');
+		    
+		  current.text(characterCount);
+		 
+		  
+		  /*This isn't entirely necessary, just playin around*/
+		  if (characterCount < 70) {
+		    current.css('color', '#666');
+		  }
+		  if (characterCount > 70 && characterCount < 90) {
+		    current.css('color', '#6d5555');
+		  }
+		  if (characterCount > 90 && characterCount < 100) {
+		    current.css('color', '#793535');
+		  }
+		  if (characterCount > 100 && characterCount < 120) {
+		    current.css('color', '#841c1c');
+		  }
+		  if (characterCount > 120 && characterCount < 139) {
+		    current.css('color', '#8f0001');
+		  }
+		  
+		  if (characterCount >= 140) {
+		    maximum.css('color', '#8f0001');
+		    current.css('color', '#8f0001');
+		    theCount.css('font-weight','bold');
+		  } else {
+		    maximum.css('color','#666');
+		    theCount.css('font-weight','normal');
+		  }
+		});
+		
+		
 	});
-	
-	
-});
 </script>
 
 <!--  -->
@@ -409,33 +409,39 @@ var infowindow;
 
 <body id="page-top">
 
-<!-- Navigation -->
-    <a class="menu-toggle rounded" href="#">
-      <i class="fas fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">Services</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
+	<!-- Navigation -->
+	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
+	</a>
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand">
+				<a class="js-scroll-trigger" href="index">Start Bootstrap</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="intro">About</a>
+			</li>
+			<c:if test="${sessionScope.username == null}">
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="register">Register</a>
+				</li>
+				<li class="sidebar-nav-item">
+					<a class="js-scroll-trigger" href="logIn">Log In</a>
+				</li>
+				
+			</c:if>
+			<c:if test="${sessionScope.username != null}">
+        		<li class="sidebar-nav-item">
+          			<a class="js-scroll-trigger" href="logout">Log Out</a>
+        		</li>
+        		<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
+				</li>
+        	</c:if>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="#contact">Search</a>
+			</li>
+		</ul>
+	</nav>
 
 <form action="createPhoto" method="POST" enctype="multipart/form-data">
 	<section class="content-section" id="portfolio">
@@ -456,48 +462,38 @@ var infowindow;
 					</div>
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<h5>Privacy</h5>
+				<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개 
+				<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
+			</div>
+			<div class="form-group">
+				<div class="wrapper">
+					<textarea id="the_textarea" name="photocontent" maxlength="300" placeholder="Start Typin…"  rows="10" cols="auto" style="resize: none" autofocus></textarea>
+  					<div id="the_count">
+    					<span id="current">0</span>
+    					<span id="maximum">/ 300</span>
+  					</div>
+  				</div>
+			</div>
+			<div class="form-group">
+				<h5>HashTag</h5>
+				<input class="form-control" type="text" name="userKeyword" placeholder="hashtag">
+			</div>
+			<input type="hidden" name="albumno" value="${albumno}"><br>
+			<input type="hidden" id="photoimg" name="photoimg">
+			<input type="hidden" id="lat" name="lat">
+			<input type="hidden" id="lng" name="lng">
 			<div class="card my-4">
 				<div class="form-group">
-					<h5 class="card-header">Privacy</h5>
-					<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개 
-					<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
+					<h5">Date Of Travel</h5>
+					<input class="form-control"  type="date" name="dateoftravel">
 				</div>
-			</div>		
-			<div class="card my-4">
-				<div class="form-group">
-					<h5 class="card-header">Content</h5>
-					<textarea class="form-control" name="photocontent" rows="10" cols="auto" style="resize: none"></textarea>
-				</div>
-			</div>			
-				<div class="form-group">
-					<div class="wrapper">
-						<h4>Album Title</h4>
-  						<textarea id="albumtitle" name="title" maxlength="50" placeholder="Start Typin…" autofocus></textarea>
-  							<div id="the_count">
-    							<span id="current">0</span>
-    							<span id="maximum">/ 50</span>
-  							</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<div class="wrapper">
-						<h4>Privacy</h4>
-  							<input type="radio" class="privacyCheck" value="public">공개
-  							<input type="radio" class="privacyCheck" value="private">비공개
-					</div>
-				</div>
-	
-				<div class="form-group">
-					<div class="wrapper">
-						<h4>Album Introduction</h4>
-  						<textarea id="the_textarea" name="albumintro" maxlength="300" placeholder="Start Typin…" autofocus></textarea>
-  							<div id="the_count">
-    							<span id="current">0</span>
-    							<span id="maximum">/ 300</span>
-  							</div>
-					</div>
-				</div>
+			</div>
+			
+			
+			
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Start Date</h4>
