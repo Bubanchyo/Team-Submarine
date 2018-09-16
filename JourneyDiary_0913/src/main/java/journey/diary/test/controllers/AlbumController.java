@@ -100,6 +100,7 @@ public class AlbumController {
 			PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
 			List<Photo> photoList = manager.getAlbumPhoto(albumno);
 			
+			model.addAttribute("albumno", albumno);
 			model.addAttribute("photoList", photoList);
 			
 			return "photo/photoList";

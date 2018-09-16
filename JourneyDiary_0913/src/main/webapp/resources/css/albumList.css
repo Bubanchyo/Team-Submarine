@@ -462,5 +462,17 @@ textarea[placeholder] {
   padding: 0.1rem 0 0 0;
   font-size: 0.875rem;
 }
+ #bottomnav {
+   padding: 10px 0 10px 0;
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:80px;
+   max-width:100%;
+   background:#1D809F;
+}
+#bottomnav p {
+   text-align: center;
+}
 
 

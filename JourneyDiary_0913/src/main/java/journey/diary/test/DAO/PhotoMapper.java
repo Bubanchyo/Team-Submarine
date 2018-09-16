@@ -8,6 +8,7 @@ import journey.diary.test.VO.Uploadimage;
 public interface PhotoMapper {
 	public List<Photo> getPhotoList();
 	public List<Photo> getAlbumPhoto(int albumno);
-	public Photo getOnePhoto(int photono);
+	public Photo selectOnePhoto(int photono);
+	public int photoUpload(Photo photo);
 	public int uploadimg(Uploadimage image);
 }

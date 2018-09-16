@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/photoList.css" rel="stylesheet">
+<link href="./resources/css/photoList.css?ver=2" rel="stylesheet">
 
 </head>
 
@@ -93,7 +93,7 @@
                   <p class="mb-0">${Photo.keyword}</p>
                 </span>
               </span>
-              <img class="img-fluid" src="${Photosrc}${Photo.photoimg}" style="width: 560px; height: 420px; overflow:hidden">
+              <img class="img-fluid" src="${Photosrc}${Photo.photoimg}" style="width: 560px; height: 420px; object-fit: cover; overflow:hidden;">
             </a>
           </div>
           </c:forEach>
@@ -103,8 +103,8 @@
 
     <!-- Call to Action -->
     <section class="content-section bg-primary text-white">
-      <div class="container text-center" >
-        <a href="createPhoto" class="btn btn-xl btn-light mr-4">CREATE PHOTO</a>
+      <div id="bottomnav" class="container text-center" >
+        <a href="createPhoto?albumno=${albumno}" class="btn btn-xl btn-light mr-4">CREATE PHOTO</a>
       </div>
     </section>
 

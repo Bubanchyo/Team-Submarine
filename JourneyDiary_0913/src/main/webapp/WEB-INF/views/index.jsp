@@ -243,7 +243,7 @@
 			<div class="row no-gutters">
 				<c:forEach var="Photo" items="${photoList}">
 				<div class="col-lg-6">
-						<a class="portfolio-item" href="photoDetail?photono=${Photo.photono}" style='width: 100%; height: 100%; max-height: 300px; max-width: 600px; overflow: hidden;'> 
+						<a class="portfolio-item" href="photoDetails?photono=${Photo.photono}" style='width: 100%; height: 100%; max-height: 300px; max-width: 600px; overflow: hidden;'> 
 							<span class="caption">
 								<span class="caption-content">
 									<h2>Stationary</h2>
@@ -255,15 +255,6 @@
 					</div>
 				</c:forEach>
 			</div>
-		</div>
-	</section>
-
-	<!-- Call to Action -->
-	<section class="content-section bg-primary text-white">
-		<div class="container text-center">
-			<h2 class="mb-4">The buttons below are impossible to resist...</h2>
-			<a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a> <a
-				href="#" class="btn btn-xl btn-dark">Look at Me!</a>
 		</div>
 	</section>
 

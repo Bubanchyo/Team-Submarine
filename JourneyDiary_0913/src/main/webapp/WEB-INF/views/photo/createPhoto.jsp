@@ -42,22 +42,6 @@
 
 
 <script type="text/javascript">
-	function readURL(input) {
-		if (input.files && input.files[0]) {
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				$('#imagePreview').css('background-image',
-						'url(' + e.target.result + ')');
-				$('#imagePreview').hide();
-				$('#imagePreview').fadeIn(650);
-			}
-			reader.readAsDataURL(input.files[0]);
-		}
-	}
-	$("#imageUpload").change(function() {
-		readURL(this);
-	});
-	
 	$(function(){
 		//글자수 제한 수정해야 함. 
 		$('#albumtitle').keyup(function() {
@@ -98,10 +82,7 @@
 		
 		
 	});
-</script>
 
-<!--  -->
-<script type="text/javascript">
 
 /* 변수들 */
 var sel_file;
@@ -165,10 +146,12 @@ var infowindow;
             	if(tokens.length == 1){
             		labelName = result;
 					getPhotoInfo();
+					$('#landmark').val(labelName);
 					initMap(labelName);
             	}else{
             		getPhotoInfo();
             		initMap_Land(result);
+            		$('#landmark').val(tokens[0]);
             	}
             }
          });
@@ -236,7 +219,6 @@ var infowindow;
 				+ '</div>')
 
 				infowindow.open(map, marker);
-				console.log('이게실행됨');
 			} else {
 				alert('Geocode was not successful for the following reason: '
 					+ status);
@@ -443,7 +425,7 @@ var infowindow;
 		</ul>
 	</nav>
 
-<form action="createPhoto" method="POST" enctype="multipart/form-data">
+<form id="fileform" action="createPhoto" method="POST" enctype="multipart/form-data">
 	<section class="content-section" id="portfolio">
 		<div class="container">
 			<div class="content-section-heading text-center">
@@ -477,9 +459,10 @@ var infowindow;
   					</div>
   				</div>
 			</div>
+			<input type="hidden" id="landmark" name="landmark">
 			<div class="form-group">
 				<h5>HashTag</h5>
-				<input class="form-control" type="text" name="userKeyword" placeholder="hashtag">
+				<input class="form-control" type="text" name="hashtag" placeholder="hashtag">
 			</div>
 			<input type="hidden" name="albumno" value="${albumno}"><br>
 			<input type="hidden" id="photoimg" name="photoimg">
@@ -491,28 +474,27 @@ var infowindow;
 					<input class="form-control"  type="date" name="dateoftravel">
 				</div>
 			</div>
-			
-			
-			
-				<div class="form-group">
-					<div class="wrapper">
-						<h4>Start Date</h4>
-  						<input type="date" class="form-control" name="startdate" />
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<div class="wrapper">
-						<h4>End Date</h4>
-  						<input type="date" class="form-control" name="enddate" />
-					</div>
-				</div>
+			<div class="form-group">
+			<div id="search"></div>
+			<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
+			<div id="upResult2"></div>
+			<input id="pac-input" class="controls" type="hidden">
+			<div id="infowindow-content"></div>
+    	</div>
+		
 		</div>
 	</section>
 
-</form>	
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
+	</form>	
+	<section>
+		<div id="nav-bottom">
+			<div>
+				<button type="button" class="btn btn-primary" onclick="posting()">Confirm</button>
+			</div>
+		</div>
+	</section>
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./resources/vendor/jquery/jquery.min.js"></script>
@@ -525,5 +507,5 @@ var infowindow;
 	<script src="./resources/js/stylish-portfolio.min.js"></script>
 
 </body>
-
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABYid41RaVrQL5pT8XhbZcRo3ss-MYG2w&libraries=places"></script>
 </html>

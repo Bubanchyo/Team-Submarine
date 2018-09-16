@@ -422,5 +422,29 @@ a:hover, a:focus, a:active {
 	transition: all .1s ease-in-out;
 }
 
+textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  color: #666;
+  box-shadow: inset 0 0 0.25rem #ddd;
+}
+textarea:focus {
+  outline: none;
+  border: 1px solid #d0d0d0;
+  box-shadow: inset 0 0 0.5rem #d0d0d0;
+}
+textarea[placeholder] {
+  font-style: italic;
+  font-size: 0.875rem;
+}
 
+#the_count {
+  float: right;
+  padding: 0.1rem 0 0 0;
+  font-size: 0.875rem;
+}
 

@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/albumList.css" rel="stylesheet">
+<link href="./resources/css/albumList.css?ver=3" rel="stylesheet">
 
 </head>
 
@@ -100,12 +100,9 @@
     </section>
 
 		<!-- Call to Action -->
-		<section class="content-section bg-primary text-white">
 			<div id="bottomnav" class="container text-center">
 				<a href="createAlbum" class="btn btn-xl btn-light mr-4">CREATE ALBUM</a>
 			</div>
-		</section>
-
 
     	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded js-scroll-trigger" href="createAlbum">

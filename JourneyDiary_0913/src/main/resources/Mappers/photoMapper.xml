@@ -9,16 +9,21 @@
 		SELECT 
 			photono,
 			albumno,
+			userno,
 			privacy,
 			photoimg,
 			photocontent,
-			keyword,
+			landmark,
+			hashtag,
 			TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel,
+			photoregdate,
 		<!-- 왜?<if test="lat != null"> -->
 			lat,
 			lng,
 		<!-- </if> -->
-			userno 
+			userno,
+			hitcount,
+			likecount
 		FROM photo
 		WHERE photono=#{photono}
 	</select>
@@ -29,51 +34,45 @@
 		(
 				photono,
 				albumno,
+				userno,
 				privacy,
 				photoimg,
 				photocontent,
+			<if test="keyword != null">	
 				keyword,
+			</if>
+				landmark,
+				hashtag,
 				dateoftravel,
+				photoregdate,
 			<if test="lat != null">
 				lat,
 				lng,
 			</if>
-				userno
+				hitcount,
+				likecount
 		)
 		VALUES
 		(
 				photoseq.nextVal,
 				#{albumno},
+				#{userno},
 				#{privacy},
 				#{photoimg},
 				#{photocontent},
+			<if test="keyword != null">	
 				#{keyword},
+			</if>
+				#{landmark},
+				#{hashtag},
 				#{dateoftravel},
+				sysdate,
 			<if test="lat != null">
 				#{lat},
 				#{lng},
 			</if>
-				#{userno}
-		)		
-	</insert>
-	
-	
-	<!-- ajaxUpload -->
-	<insert id="ajaxUpload" parameterType="Photo">
-		INSERT INTO PHOTO
-		VALUES(
-			photoseq.nextVal,
-			#{albumno},
-			#{privacy},
-			#{photoimg},
-			#{photocontent},
-			#{keyword},
-			#{dateoftravel},
-		<if test="lat != null">
-			#{lat},
-			#{lng},
-		</if>
-			#{userno}
+				0,
+				0
 		)		
 	</insert>
 	
