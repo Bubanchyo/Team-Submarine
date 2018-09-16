@@ -90,7 +90,7 @@ public class UserController {
 			if(m != null) {
 				session.setAttribute("useremail", m.getUseremail());
 				session.setAttribute("username", m.getUsername());
-				session.setAttribute("memberno", m.getUserno());
+				session.setAttribute("userno", m.getUserno());
 				return "redirect:/";
 				
 			}else {

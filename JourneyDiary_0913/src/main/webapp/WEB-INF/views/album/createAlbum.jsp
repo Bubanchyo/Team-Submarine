@@ -60,7 +60,7 @@
 
 	$(function() {
 		//글자수 제한 수정해야 함. 
-		$('#albumtitle')
+		$('#albumcontent')
 				.keyup(
 						function() {
 							var characterCount = $(this).val().length, current = $('#current'), maximum = $('#maximum'), theCount = $('#the-count');
@@ -135,11 +135,11 @@
 						<input type='file' id="imageUpload" name="uploadfile"
 							accept=".png, .jpg, .jpeg" onchange="readURL(this)" /> <label
 							for="imageUpload"
-							style="background-image: url(./resources/img/pencil.png); background-size: 30px 30px; background-repeat: no-repeat; background-position: center;"></label>
+							style="background-image: url(./resources/img/templates/pencil.png); background-size: 30px 30px; background-repeat: no-repeat; background-position: center;"></label>
 					</div>
 					<div class="avatar-preview">
 						<div id="imagePreview"
-							style="background-image: url(./resources/img/portfolio-1.jpg);">
+							style="background-image: url(./resources/img/templates/portfolio-1.jpg);">
 						</div>
 					</div>
 				</div>
@@ -147,8 +147,7 @@
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Title</h4>
-						<textarea name="the-textarea" id="albumtitle" name="albumtitle"
-							maxlength="50" placeholder="Start Typin…" autofocus></textarea>
+						<textarea id="albumtitle" name="albumtitle"	maxlength="50" placeholder="Start Typin…" autofocus></textarea>
 						<div id="the_count">
 							<span id="current">0</span> <span id="maximum">/ 50</span>
 						</div>
@@ -157,11 +156,17 @@
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Introduction</h4>
-						<textarea name="the-textarea" id="the_textarea" name="albumintro"
-							maxlength="300" placeholder="Start Typin…" autofocus></textarea>
+						<textarea class="albumcontent" name="albumintro" maxlength="300" placeholder="Start Typin…" autofocus></textarea>
 						<div id="the_count">
 							<span id="current">0</span> <span id="maximum">/ 300</span>
 						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="wrapper">
+						<h4>Album Introduction</h4>
+						<input class="privacyCheck" type="radio" name="privacy" value="public">공개
+						<input class="privacyCheck" type="radio" name="privacy" value="private">비공개
 					</div>
 				</div>
 				<div class="form-group">

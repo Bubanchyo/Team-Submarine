@@ -14,7 +14,7 @@
 	<insert id="registerMember" parameterType="User">
 		INSERT INTO users
 		(
-			userrno
+			userno
 		  , useremail
 		  , username
 		  , userpassword
@@ -23,7 +23,7 @@
 		)
 		VALUES
 		(
-			member_seq.nextVal
+			userseq.nextVal
 		  , #{useremail}
 		  , #{username}
 		  , #{userpassword}
