@@ -45,8 +45,10 @@
 	
 	</update>
 	
-	
-	
+	<delete id="deleteAlbum" parameterType="int">
+		delete from album
+		where albumno = #{albumno}
+	</delete>
 	
 	
 	

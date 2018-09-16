@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/albumList.css?ver=3" rel="stylesheet">
+<link href="./resources/css/albumList.css" rel="stylesheet">
 
 </head>
 

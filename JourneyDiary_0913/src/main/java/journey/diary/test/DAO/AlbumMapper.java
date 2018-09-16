@@ -12,4 +12,5 @@ public interface AlbumMapper {
 	public int createAlbum(Album album);
 	public Album getAlbum (Album album);
 	public int alterAlbum(Album album);
+	public int deleteAlbum(int albumno);
 }
