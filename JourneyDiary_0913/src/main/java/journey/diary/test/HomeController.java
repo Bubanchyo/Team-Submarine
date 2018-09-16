@@ -23,11 +23,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
-		PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
-		List<Photo> photoList = manager.getPhotoList();
-		
-		model.addAttribute("photoList", photoList);
-		
 		return "index";
 	}
 	
