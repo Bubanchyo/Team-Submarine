@@ -114,8 +114,54 @@ public class AlbumController {
 		@RequestMapping(value = "/alterAlbum", method = RequestMethod.GET)
 		public String alterAlbum(Locale locale, Model model, HttpSession session, int albumno) {
 			
-				System.out.println(albumno);
-			return "album/albumList";
+			int userno = (int)session.getAttribute("userno");
+			
+			AlbumMapper manager = sqlSession.getMapper(AlbumMapper.class);
+			Album album = new Album();
+			album.setAlbumno(albumno);
+			album.setUserno(userno);
+			
+			Album result = manager.getAlbum(album);
+			model.addAttribute("Albumsrc", ALBUMLINKPATH);
+			model.addAttribute("Album", result);
+			
+
+			return "album/alterAlbum";
+
+		}
+		
+		@RequestMapping(value = "/alterAlbum", method = RequestMethod.POST)
+		public String changeAlbum(Locale locale, Model model, HttpSession session, Album album, MultipartFile uploadfile) {
+			
+			int userno = (int)session.getAttribute("userno");
+			
+			AlbumMapper manager = sqlSession.getMapper(AlbumMapper.class);
+			album.setUserno(userno);
+			
+			UUID uuid = UUID.randomUUID();
+			
+			String saveFileName = uuid + "_" + uploadfile.getOriginalFilename();
+			
+			File saveFile = new File(ALBUMUPLOADPATH, saveFileName);
+			
+			PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+			
+			try {
+				uploadfile.transferTo(saveFile);
+				Uploadimage image = new Uploadimage();
+				image.setOriginalfilename(uploadfile.getOriginalFilename());
+				image.setSavedfilename(saveFileName);
+				photoManager.uploadimg(image);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			album.setAlbumimg(saveFileName);
+			
+			
+			
+			manager.alterAlbum(album);
+
+			return "redirect:showAlbum";
 
 		}
 		

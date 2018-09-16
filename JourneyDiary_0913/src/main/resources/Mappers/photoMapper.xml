@@ -103,14 +103,14 @@
 	</select>
 	
 	<select id="getAlbumPhoto" parameterType="int" resultType="Photo">
-		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, userno
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel, lat, lng, userno
 		FROM photo
 		WHERE albumno = #{value}	
 		ORDER BY photono
 	</select>
 
 	<select id="getPhotoList" parameterType="int" resultType="Photo">
-		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, dateoftravel, lat, lng, userno
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel, lat, lng, userno
 		FROM photo	
 		ORDER BY photono
 	</select>

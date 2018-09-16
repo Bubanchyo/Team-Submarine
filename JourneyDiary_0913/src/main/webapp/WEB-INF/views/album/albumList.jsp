@@ -92,8 +92,8 @@
 									<p class="mb-0">${Album.albumintro}</p>
 							</span>
 						</span> <img class="img-fluid" src='${albumsrc}${Album.albumimg}' style="width: 560px; height: 420px; overflow: hidden; object-fit: cover;" alt="Free For All">
-						<a href="alterAlbum?albumno=${Album.albumno}" style="position: absolute; top: 30px; right: 130px; z-index: 100; color: #fff;">ALTER</a>
-						<a href="deleteAlbum?albumno=${Album.albumno}" style="position: absolute; top: 30px; right: 50px; z-index: 100; color: white;">DELETE</a>
+						<a href="alterAlbum?albumno=${Album.albumno}" style="position: absolute; top: 60px; right: 160px; z-index: 100; color: #fff;">ALTER</a>
+						<a href="deleteAlbum?albumno=${Album.albumno}" style="position: absolute; top: 60px; right: 80px; z-index: 100; color: white;">DELETE</a>
 						</a>
 					</div>
 				</c:forEach>

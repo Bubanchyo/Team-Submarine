@@ -200,21 +200,23 @@
 				<div class="avatar-upload">
 					<div class="avatar-edit">
 						<input type='file' id="imageUpload" name="uploadfile"
-							accept=".png, .jpg, .jpeg" onchange="readURL(this)" /> <label
+							accept=".png, .jpg, .jpeg" onchange="readURL(this)" value="${Album.albumimg}"/> <label
 							for="imageUpload"
-							style="background-image: url(${Album.albumimg}); background-size: 30px 30px; background-repeat: no-repeat; background-position: center;"></label>
+							style="background-image: url(./resources/img/templates/pencil.png); background-size: 30px 30px; background-repeat: no-repeat; background-position: center;"></label>
 					</div>
 					<div class="avatar-preview">
 						<div id="imagePreview"
-							style="background-image: url(${Album.albumimg});">
+							style="background-image: url(${Albumsrc}${Album.albumimg});">
 						</div>
 					</div>
 				</div>
 				
+				<input type="hidden" name="albumno" value="${Album.albumno}">
+				
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Title</h4>
-						<textarea value="${Album.albumtitle}"id="the_text" name="albumtitle" maxlength="50" placeholder="Start Typing…" autofocus></textarea>
+						<textarea id="the_text" name="albumtitle" maxlength="50" placeholder="Start Typing…" autofocus>${Album.albumtitle}</textarea>
 						<div id="the_count">
 							<span id="current_text">0</span> <span id="maximum">/ 50</span>
 						</div>
@@ -224,7 +226,7 @@
 				<div class="form-group">
 					<div class="wrapper">
 						<h4>Album Introduction</h4>
-						<textarea id="the_textarea" name="albumintro" maxlength="300" placeholder="Start Typing…" autofocus></textarea>
+						<textarea id="the_textarea" name="albumintro" maxlength="300" placeholder="Start Typing…" autofocus>${Album.albumintro}</textarea>
 						<div id="the_count">
 							<span id="current_textarea">0</span> <span id="maximum">/ 300</span>
 						</div>
@@ -232,7 +234,7 @@
 				</div>
 				<div class="form-group">
 					<div class="wrapper">
-						<h4>Album Introduction</h4>
+						<h4>Privacy</h4>
 						<c:if test="${Album.privacy eq 'public'}">
 						<input class="privacyCheck" type="radio" name="privacy" value="public" checked="checked">공개
 						<input class="privacyCheck" type="radio" name="privacy" value="private">비공개
