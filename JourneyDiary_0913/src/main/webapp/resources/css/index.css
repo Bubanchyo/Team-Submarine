@@ -25,9 +25,9 @@
 .SearchBar .fa-search {
   background: #1373B0;
   color: #fff;
-  line-height: 32px;
+  line-height: 42px;
   font-size: 16px;
-  width: 2em;
+  width: 42px;
   text-align: center;
   margin: 0 0 0 -16px;
   display: inline-block;
@@ -50,7 +50,7 @@
   vertical-align: top;
   border-bottom-left-radius: 50px;
   border-top-left-radius: 50px;
-  height: 32px;
+  height: 42px;
   width: 0;
   -webkit-transition: width 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   -moz-transition: width 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);

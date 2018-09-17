@@ -270,6 +270,7 @@ public class PhotoController {
 		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
 		Photo photo = photoManager.selectOnePhoto(photono);
 
+		model.addAttribute("Photosrc", PHOTOLINKPATH);
 		model.addAttribute("Photo", photo);
 
 		return "photo/alterPhoto";
@@ -277,17 +278,23 @@ public class PhotoController {
 	
 	
 	@RequestMapping(value = "/alterPhoto", method = RequestMethod.POST)
-	public String changePhoto(Model model, int photono) {
-
+	public String changePhoto(Model model, Photo photo, MultipartFile uploadfile, HttpSession session) {
+		
 		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
-		Photo photo = photoManager.selectOnePhoto(photono);
+		
+		int userno = (int)session.getAttribute("userno");
+		
+		photo.setUserno(userno);
+		
+		photoManager.alterPhoto(photo);
 
 		List<Photo> photoList = photoManager.getAlbumPhoto(photo.getAlbumno());
 
 		model.addAttribute("photoList", photoList);
 		model.addAttribute("albumno", photo.getAlbumno());
 
-		return "photo/alterPhoto";
+		
+		return "redirect:photoList";
 	}
 
 	@RequestMapping(value = "/deletePhoto", method = RequestMethod.GET)
