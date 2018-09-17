@@ -14,8 +14,8 @@
 	var map;
 	var markers = [];
 	var geocoder;
-	var getlat = parseFloat("${photoDetail.lat}");
-	var getlng = parseFloat("${photoDetail.lng}");
+	var getlat = parseFloat("${Photo.lat}");
+	var getlng = parseFloat("${Photo.lng}");
 	
 	function initMap() {
 		
@@ -31,7 +31,7 @@
 				zoom : 8
 			});
 			
-			geocoder.geocode( { 'address': '${photoDetail.keyword}'}, function(results, status) {
+			geocoder.geocode( { 'address': '${Photo.keyword}'}, function(results, status) {
 	 	        if (status == google.maps.GeocoderStatus.OK) {
 	 	            map.setCenter(results[0].geometry.location);
 	 	            var marker = new google.maps.Marker({
@@ -42,7 +42,7 @@
 	 	           infowindow.setContent(
 	                		'<div class="wrap">' 
 	                		+ '   <div class="info">'
-	                		+ '		<div class="title"><strong>' + '${photoDetail.keyword}' + '</strong></div><br>'
+	                		+ '		<div class="title"><strong>' + '${Photo.keyword}' + '</strong></div><br>'
 	                		+ '        <div class="body">'
 	                		+ '            <div class="desc">' 
 	                		+ '					<div class="ellipsis"><strong>주소: </strong>' + results[0].formatted_address +'</div>'
@@ -112,19 +112,19 @@
 			</li>
 		</ul>
 	</nav>
-<h1>photoDetails view</h1>
+<h1>Photos view</h1>
 
 	<div>
-		<img id="img" style="width: 500px; height: 375px" src="${photoDetail.photoimg}"/>
+		<img id="img" style="width: 500px; height: 375px" src="${Photo.photoimg}"/>
 	</div>
 
 	<input class="privacy" type="radio" name="privacy" value="공개" checked="checked">공개 
 	<input class="privacy" type="radio" name="privacy" value="비공개">비공개<br>
-	<textarea name="photocontent" rows="10" cols="90" style="resize: none">${photoDetail.photocontent}</textarea>
-	<div id="hashtag"><a href="#">${photoDetail.keyword}</a></div>
-	<input type="date" name="dateoftravel" value="${photoDetail.dateoftravel}"> 
+	<textarea name="photocontent" rows="10" cols="90" style="resize: none">${Photo.photocontent}</textarea>
+	<div id="hashtag"><a href="#">${Photo.keyword}</a></div>
+	<input type="date" name="dateoftravel" value="${Photo.dateoftravel}"> 
 
-	<c:if test="${photoDetail.lat != null}">
+	<c:if test="${Photo.lat != null}">
 	<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
     <input id="pac-input" class="controls" type="hidden">
     <div id="infowindow-content"></div>

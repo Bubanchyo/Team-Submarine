@@ -168,10 +168,17 @@ public class AlbumController {
 		
 		@RequestMapping(value = "/deleteAlbum", method = RequestMethod.GET)
 		public String deleteAlbum(Locale locale, Model model, HttpSession session, int albumno) {
+			
+			int userno = (int)session.getAttribute("userno");
+			
 			int result = 0;
 			AlbumMapper albumMapper = sqlSession.getMapper(AlbumMapper.class);
 		    result = albumMapper.deleteAlbum(albumno);
-			return "album/albumList";
+		    
+		    List<Album> albumList = albumMapper.getAlbumList(userno);
+		    
+		    model.addAttribute("albumList", albumList);
+			return "redirect:showAlbum";
 
 		}
 		

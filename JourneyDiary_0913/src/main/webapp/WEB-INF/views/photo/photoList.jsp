@@ -93,6 +93,8 @@
                 </span>
               </span>
               <img class="img-fluid" src="${Photosrc}/${Photo.photoimg}" style="width: 560px; height: 420px; object-fit: cover; overflow:hidden;">
+              <a href="alterPhoto?photono=${Photo.photono}" style="position: absolute; top: 60px; right: 160px; z-index: 100; color: #fff;">ALTER</a>
+			  <a href="deletePhoto?photono=${Photo.photono}" style="position: absolute; top: 60px; right: 80px; z-index: 100; color: white;">DELETE</a>
             </a>
           </div>
           </c:forEach>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
@@ -261,6 +262,42 @@ public class PhotoController {
 		model.addAttribute("Photosrc", PHOTOLINKPATH);
 		
 		return "photo/photoDetails";
+	}
+	
+	@RequestMapping(value = "/alterPhoto", method = RequestMethod.GET)
+	public String updatePhoto(Model model, int photono) {
+
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+		Photo photo = photoManager.selectOnePhoto(photono);
+
+		model.addAttribute("Photo", photo);
+
+		return "photo/alterPhoto";
+	}
+	
+	
+	@RequestMapping(value = "/alterPhoto", method = RequestMethod.POST)
+	public String changePhoto(Model model, int photono) {
+
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+		Photo photo = photoManager.selectOnePhoto(photono);
+
+		List<Photo> photoList = photoManager.getAlbumPhoto(photo.getAlbumno());
+
+		model.addAttribute("photoList", photoList);
+		model.addAttribute("albumno", photo.getAlbumno());
+
+		return "photo/alterPhoto";
+	}
+
+	@RequestMapping(value = "/deletePhoto", method = RequestMethod.GET)
+	public String deletePhoto(Model model, int photono) {
+		
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+
+		photoManager.deletePhoto(photono);
+
+		return "redirect:showAlbum";
 	}
 
 }

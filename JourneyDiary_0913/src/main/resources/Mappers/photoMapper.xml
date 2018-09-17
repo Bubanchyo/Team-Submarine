@@ -86,6 +86,19 @@
 		)
 	</insert>
 	
+	<update id="alterPhoto" parameterType="Photo">
+		UPDATE PHOTO SET
+			privacy = #{privacy},
+			photoimg = #{photoimg},
+			photocontent = #{photocontent},
+			landmark = #{landmark},
+			hashtag = #{hashtag},
+			dateoftravel = #{dateoftravel},
+			lat = #{lat},
+			lng = #{lng}
+		WHERE
+			photono = #{photono} and userno = #{userno} and albumno = #{albumno}
+	</update>
 	
 	<!-- 삭제기능 -->
 	<delete id="deletePhoto" parameterType="_int">

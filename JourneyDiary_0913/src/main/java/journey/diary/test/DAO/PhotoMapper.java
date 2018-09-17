@@ -11,4 +11,6 @@ public interface PhotoMapper {
 	public Photo selectOnePhoto(int photono);
 	public int photoUpload(Photo photo);
 	public int uploadimg(Uploadimage image);
+	public int alterPhoto(int photono);
+	public int deletePhoto(int photono);
 }
