@@ -46,8 +46,8 @@ public class PhotoController {
 	SqlSession sqlSession;
 	
 
-	String PHOTOUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\photo\\";
-	String ALBUMUPLOADPATH = "C:\\Users\\kita\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
+	String PHOTOUPLOADPATH = "C:\\Users\\LEE NANA\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\photo\\";
+	String ALBUMUPLOADPATH = "C:\\Users\\LEE NANA\\git\\Team-Submarine3\\JourneyDiary_0913\\src\\main\\webapp\\resources\\img\\album\\";
 	String PHOTOLINKPATH = "./resources/img/photo/";
 	String ALBUMLINKPATH = "./resources/img/album/";
 		

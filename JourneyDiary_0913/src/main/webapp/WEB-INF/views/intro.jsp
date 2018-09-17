@@ -41,6 +41,13 @@
 
 <body id="page-top">
 
+	<!-- ####################### 새롬 test #########################	 -->
+		<div class="SearchBar">
+  			<input type="text" placeholder="Please put keywords" /><div class="fa fa-search"></div>
+  		</div>
+	
+	<!-- ####################### 새롬 test #########################	 -->
+
 		<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
 	</a>
@@ -166,7 +173,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="./resources/js/stylish-portfolio.min.js"></script>
-
+	<script src="./resources/js/index.js"></script>
 </body>
 
 </html>

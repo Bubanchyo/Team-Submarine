@@ -3,6 +3,62 @@
  * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/blob/master/LICENSE)
  */
+ 
+ /* #####################새롬 Test ######################### */
+.SearchBar {
+  left: 30px;
+  top: 30px;
+  position: absolute;
+}
+.SearchBar.is-expanded .fa-search {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.SearchBar.is-expanded input {
+  width: 300px;
+  text-align: center;
+}
+
+.SearchBar .fa-search {
+  background: #1373B0;
+  color: #fff;
+  line-height: 32px;
+  font-size: 16px;
+  width: 2em;
+  text-align: center;
+  margin: 0 0 0 -16px;
+  display: inline-block;
+  vertical-align: top;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  -webkit-transition: -webkit-transform 0.65s ease;
+  -moz-transition: -webkit-transform 0.65s ease;
+  transition: -webkit-transform 0.65s ease;
+}
+
+.SearchBar input {
+  padding: 0;
+  text-align: 15px left;
+  background: #eee;
+  display: inline-block;
+  border: 0;
+  vertical-align: top;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  height: 32px;
+  width: 0;
+  -webkit-transition: width 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -moz-transition: width 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: width 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+ /* ####################################################### */
+ 
 body,
 html {
   width: 100%;
