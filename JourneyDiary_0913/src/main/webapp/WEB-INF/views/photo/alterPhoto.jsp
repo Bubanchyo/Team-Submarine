@@ -32,6 +32,14 @@
 	var geocoder;
 	var getlat = parseFloat("${Photo.lat}");
 	var getlng = parseFloat("${Photo.lng}");
+	var sel_file;
+	var geocoder;
+	var labelName = '';
+	var placeSearch, autocomplete; //검색 자동완성
+	var map;
+	var marker;
+	var infowindow;
+
 	
 	function initMap() {
 		
@@ -90,15 +98,7 @@
 	
 	
 	/* 변수들 */
-	var sel_file;
-	var markers = [];
-	var geocoder;
-	var labelName = '';
-	var placeSearch, autocomplete; //검색 자동완성
-	var map;
-	var marker;
-	var infowindow;
-
+	
 
 
 		/* 썸네일 이미지 변경 */
@@ -355,7 +355,7 @@
 			text2 += '</div>';
 			
 			$('#search').html(text2);
-			
+			marker = null;
 			placeSearchBox();
 		}
 		
@@ -460,6 +460,7 @@
 	<br>
 	<input type="date" name="dateoftravel" value="${Photo.dateoftravel}"> 
 		<c:if test="${Photo.lat != null}">
+			<div id="search"></div>
 			<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
     		<div id="upResult2"></div>
     		<input id="pac-input" class="controls" type="hidden">
