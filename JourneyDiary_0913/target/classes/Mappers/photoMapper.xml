@@ -110,9 +110,9 @@
 	
 	<!-- 베스트포토 메인(carousel) -->
 	
-	<select id="getBestPHotos" parameterType="int" resultType="Photo">
-		SELECT * FROM photo
-		WHERE albumno = #{albumno}
+	<select id="getBestPhotos" parameterType="int" resultType="Photo">
+		SELECT * FROM 
+		<![CDATA[(SELECT * FROM photo WHERE albumno = 10 ORDER BY likecount DESC) WHERE ROWNUM < 6]]>;
 	</select>
 	
 	<select id="getAlbumPhoto" parameterType="int" resultType="Photo">

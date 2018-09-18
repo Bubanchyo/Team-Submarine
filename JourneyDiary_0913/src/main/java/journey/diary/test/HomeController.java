@@ -30,6 +30,7 @@ public class HomeController {
 		List<Photo> photoList = manager.getPhotoList();
 		model.addAttribute("Photosrc", PHOTOLINKPATH);
 		model.addAttribute("photoList", photoList);
+	
 		
 		return "index";
 	}
