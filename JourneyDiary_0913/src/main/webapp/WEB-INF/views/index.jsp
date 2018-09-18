@@ -27,6 +27,7 @@
 <!-- Custom Fonts -->
 <link href="./resources/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
 	rel="stylesheet" type="text/css">
@@ -35,7 +36,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/index.css?ver=2" rel="stylesheet">
+<link href="./resources/css/index.css" rel="stylesheet">
 
 </head>
 
@@ -85,20 +86,23 @@
         		<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="showAlbum">My Journey Diary</a>
 				</li>
+				<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="viewProfile">My Profile</a>
+				</li>
         	</c:if>
 			<li class="sidebar-nav-item">
 				<a class="js-scroll-trigger" href="search">Search</a>
 			</li>
 		</ul>
-	</nav>
-	
+	</nav>	
 	<!-- Header -->
 	<header class="masthead d-flex">
-		<div class="container text-center my-auto">
-			<h1 class="mb-1">Stylish Portfolio</h1>
-			<h3 class="mb-5">
+		<div class="container text-center my-auto" style="padding: 0 0 20px 0">
+			<h1 class="mb-1">Journey Diary</h1>
+			<br>
+			<!-- <h3 class="mb-5">
 				<em>A Free Bootstrap Theme by Start Bootstrap</em>
-			</h3>
+			</h3> -->
 			<c:if test="${sessionScope.username == null}">
 				<a class="btn btn-primary btn-xl js-scroll-trigger" href="intro">Find
 					Out More</a>
@@ -135,27 +139,26 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
-      <img class="d-block w-100" src="./resources/img/templates/portfolio-1.jpg" alt="첫번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
-      <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-    </div>
-   <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
-      <img class="d-block w-100" src="./resources/img/templates/portfolio-2.jpg" alt="두번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
-      <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-    </div>
-    <div class="carousel-item" style="max-height: 800px; overflow: hidden;">
-      <img class="d-block w-100" src="./resources/img/templates/portfolio-3.jpg" alt="세번째 슬라이드" style='object-fit: cover; height: 100%; width: 100%; max-height: 100%;'>
-      <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-    </div>
+    <c:forEach var="bestPhoto" items="${bestPhotoList}" varStatus="status">
+    	<c:if test="${status.index == 0}">
+    		<div class="carousel-item active" style="max-height: 800px; overflow: hidden;">
+    			<img class="d-block w-100" src="${Photosrc}${bestPhoto.photoimg}" alt="Best Top 5 Photos" style='object-fit: fill; max-height: 100%;'>
+    			<div class="carousel-caption">
+          			<h3>${bestPhoto.landmark}</h3>
+          			<p>${bestPhoto.photocontent}</p>
+        		</div>
+    		</div>
+    	</c:if>
+    	<c:if test="${status.index != 0}">
+    	<div class="carousel-item" style="max-height: 800px; overflow: hidden;">
+    		<img class="d-block w-100" src="${Photosrc}${bestPhoto.photoimg}" alt="Best Top 5 Photos" style='object-fit: fill; min-height: 100%; max-height: 100%;'>
+    			<div class="carousel-caption">
+    				<h3>${bestPhoto.landmark}</h3>
+          			<p>${bestPhoto.photocontent}</p>
+        		</div>
+    		</div>
+    	</c:if>
+    </c:forEach>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -179,42 +182,43 @@
 
 			<div class="row">
 				<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-					<span class="service-icon rounded-circle mx-auto mb-3"> <i
-						class="icon-screen-smartphone"></i>
+					<span class="service-icon rounded-circle mx-auto mb-3"> 
+					<i class="fas fa-mobile-alt"></i>
 					</span>
 					<h4>
-						<strong>Responsive</strong>
+						<strong>Memorable</strong>
 					</h4>
-					<p class="text-faded mb-0">Looks great on any screen size!</p>
+					<p class="text-faded mb-0">Leave the Moment of Traveling Instantly!</p>
 				</div>
+				
 				<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-					<span class="service-icon rounded-circle mx-auto mb-3"> <i
-						class="icon-pencil"></i>
+					<span class="service-icon rounded-circle mx-auto mb-3"> 
+					<i class="fas fa-map-marker-alt"></i>
 					</span>
 					<h4>
-						<strong>Redesigned</strong>
+						<strong>Convenient</strong>
 					</h4>
-					<p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+					<p class="text-faded mb-0">Get the Location of the Travel Automatically.</p>
 				</div>
 				<div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-					<span class="service-icon rounded-circle mx-auto mb-3"> <i
-						class="icon-like"></i>
+					<span class="service-icon rounded-circle mx-auto mb-3"> 
+					<i class="fas fa-map-marked-alt"></i>
 					</span>
 					<h4>
-						<strong>Favorited</strong>
+						<strong>abcde</strong>
 					</h4>
 					<p class="text-faded mb-0">
-						Millions of users <i class="fas fa-heart"></i> Start Bootstrap!
+						Trace Where You Travelled.
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<span class="service-icon rounded-circle mx-auto mb-3"> <i
-						class="icon-mustache"></i>
+					<span class="service-icon rounded-circle mx-auto mb-3"> 
+						<i class="fas fa-info-circle"></i>
 					</span>
 					<h4>
-						<strong>Question</strong>
+						<strong>Informative</strong>
 					</h4>
-					<p class="text-faded mb-0">I mustache you a question...</p>
+					<p class="text-faded mb-0">Find a lot of Useful Information about traveling</p>
 				</div>
 			</div>
 		</div>

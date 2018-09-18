@@ -11,13 +11,21 @@
 <link href="./resources/css/myProfile.css" rel="stylesheet">
 
 
-<style type="text/css">
-
-
-	
-</style>
 
 </head>
+
+<style>
+a {
+  color: #1D809F;
+}
+
+a:hover, a:focus, a:active {
+  color: #155d74;
+}
+#profile-photo {
+	background-image: url("../img/templates/default.png");
+}
+</style>
 
 <body>
 
@@ -63,17 +71,14 @@
 	<article>
 		<div class="profile-photo"></div>
 		<div class="profile-info">
-			<h1>Nick Lewis</h1>
-			<p>gender${gender}</p>
-			<p>useremail${useremail}</p>
-			<!-- 
-			<p>Creative technologist <a href="http://fiascodesign.co.uk/" target="_blank">@FiascoDesign</a>. Maker of web things. Joint owner <a href="http://mountainandco.uk/" target="_blank">@mountainandco</a>.</p>
-			 -->
-		</div>
-		
-		<!-- https://www.flaticon.com/packs/monuments-5 -->
-		
-		
+			<h1>${User.username}</h1>
+			<p>${User.useremail}</p>
+			<c:if test="${User.gender != null}">
+				<p>${User.gender}</p>
+			</c:if>
+			<a class="btn" href="editProfile">EDIT PROFILE</a>
+			<!-- <p>Creative technologist <a href="http://fiascodesign.co.uk/" target="_blank">@FiascoDesign</a>. Maker of web things. Joint owner <a href="http://mountainandco.uk/" target="_blank">@mountainandco</a>.</p> --> 
+		</div>		
 		<div class="row" id="stamp-section">
 		<h2 class="mb-5" style="text-align: center;">Stamps of Landmarks</h2>
 		<div class="col-xs-12">

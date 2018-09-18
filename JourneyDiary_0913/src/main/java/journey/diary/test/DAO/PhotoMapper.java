@@ -13,4 +13,5 @@ public interface PhotoMapper {
 	public int uploadimg(Uploadimage image);
 	public int alterPhoto(Photo photo);
 	public int deletePhoto(int photono);
+	public List<Photo> getBestPhotos();
 }

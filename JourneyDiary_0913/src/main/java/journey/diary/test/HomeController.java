@@ -28,9 +28,11 @@ public class HomeController {
 		
 		PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
 		List<Photo> photoList = manager.getPhotoList();
+		List<Photo> bestPhoto = manager.getBestPhotos();
+
 		model.addAttribute("Photosrc", PHOTOLINKPATH);
 		model.addAttribute("photoList", photoList);
-	
+		model.addAttribute("bestPhotoList", bestPhoto);
 		
 		return "index";
 	}

@@ -115,4 +115,32 @@ public class UserController {
 			
 			return "intro";
 		}
+		
+		@RequestMapping(value = "/viewProfile", method = RequestMethod.GET)
+		public String viewProfile(HttpSession session, User user, Model model) {
+			
+			int userno = (Integer)session.getAttribute("userno");
+			
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			user = userMapper.selectUserProfile(userno);
+				System.out.println("userProfile::: " + user );
+			
+			model.addAttribute("User", user);
+			
+			return "user/myProfile";
+		}
+		
+		@RequestMapping(value = "/editProfile", method = RequestMethod.GET)
+		public String editProfile(HttpSession session, User user, Model model) {
+			
+			int userno = (Integer)session.getAttribute("userno");
+			
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			user = userMapper.selectUserProfile(userno);
+				System.out.println("userProfile::: " + user );
+			
+			model.addAttribute("User", user);
+			
+			return "user/editProfile";
+		}
 }

@@ -42,7 +42,12 @@
 		and userpassword = #{userpassword}
 		</if>
 	</select>
-
+	
+	<select id="selectUserProfile" parameterType="int" resultType="User" >
+		SELECT *
+		FROM users
+		WHERE userno = #{userno}
+	</select>
 	
 
 </mapper>

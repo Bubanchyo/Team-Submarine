@@ -9,6 +9,7 @@ public interface UserMapper {
 	public int registerMember(User user);
 
 	public User selectOne(User user);
-
+	
+	public User selectUserProfile(int userno);
 
 }
