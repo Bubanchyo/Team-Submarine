@@ -103,13 +103,14 @@
       </div>
     </section>
 
+	<br><br><br><br><br>
 		<!-- Call to Action -->
 			<div id="bottomnav" class="container text-center">
 				<a href="createAlbum" class="btn btn-xl btn-light mr-4">CREATE ALBUM</a>
 			</div>
 
     	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded js-scroll-trigger" href="createAlbum">
+	<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
 		<i class="fas fa-angle-up"></i>
 	</a>
 

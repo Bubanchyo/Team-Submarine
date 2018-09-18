@@ -101,7 +101,9 @@
         </div>
       </div>
     </section>
-
+	
+	<br><br><br><br><br>
+	
     <!-- Call to Action -->
       <div id="bottomnav" class="container text-center" >
         <a href="createPhoto?albumno=${albumno}" class="btn btn-xl btn-light mr-4">CREATE PHOTO</a>

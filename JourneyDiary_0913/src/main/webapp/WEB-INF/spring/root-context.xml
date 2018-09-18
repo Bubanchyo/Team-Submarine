@@ -34,5 +34,5 @@
 	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	</bean>				
+	</bean>
 </beans>

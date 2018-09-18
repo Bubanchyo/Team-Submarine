@@ -58,7 +58,7 @@
 			geocoder.geocode( { 'address': '${Photo.landmark}'}, function(results, status) {
 	 	        if (status == google.maps.GeocoderStatus.OK) {
 	 	            map.setCenter(results[0].geometry.location);
-	 	            var marker = new google.maps.Marker({
+	 	            marker = new google.maps.Marker({
 	 	                map: map,
 	 	                position: results[0].geometry.location
 	 	            });
@@ -79,7 +79,6 @@
 	                infowindow.open(map, marker);
 	 	        } 
 	 	    });
-			
 		}
 		else{
 			map = new google.maps.Map(document.getElementById('map'), {
@@ -90,17 +89,9 @@
 				zoom : 8
 			});
 		}
-		 
 	}
 	
 	
-	/*  */
-	
-	
-	/* 변수들 */
-	
-
-
 		/* 썸네일 이미지 변경 */
 		function readURL(input) {
 			if (input.files && input.files[0]) {
@@ -200,8 +191,7 @@
 			geocoder.geocode({'location': latlng},function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					map.setCenter(results[0].geometry.location);
-					console.log(results[0].geometry.location);
-					var marker = new google.maps.Marker({
+					marker = new google.maps.Marker({
 						position : latlng,
 						map : map
 					});
@@ -228,12 +218,10 @@
 					alert('Geocode was not successful for the following reason: '
 						+ status);
 				}
-				
 				$("#lat").attr('value', tokens[1]);
 				$("#lng").attr('value', tokens[2]);
 			});
 		}
-		
 		
 		/* 문자열 자르기 */
 		function tokenizer(tokens){
@@ -251,7 +239,7 @@
 			geocoder.geocode({'address' : address},function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					map.setCenter(results[0].geometry.location);
-					var marker = new google.maps.Marker({
+					marker = new google.maps.Marker({
 						map : map,
 						position : results[0].geometry.location
 					});
@@ -288,11 +276,11 @@
 			});
 		}
 		
-		/* 마커 웹분석 */
+		/* 검색 웹분석 */
 		function placeSearchBox() {
 			marker = null;
 			geocoder = new google.maps.Geocoder();
-			infowindow = new google.maps.InfoWindow;
+			
 			
 			var input = document.getElementById('pac-input2');
 			var searchBox = new google.maps.places.SearchBox(input);
@@ -301,21 +289,65 @@
 		    	searchBox.setBounds(map.getBounds());
 		    });
 			
-			markers = [];
-			
 			searchBox.addListener('places_changed', function() {
 		        var places = searchBox.getPlaces();
-
 		        if (places.length == 0) {
-		        return;
-		    }
+			        return;
+			   	}
+		        geocoder.geocode({'address' : places[0].name},function(results, status) {
+		        	if (status == google.maps.GeocoderStatus.OK) {
+						map.setCenter(results[0].geometry.location);
+						marker = new google.maps.Marker({
+							map : map,
+							position : results[0].geometry.location
+						});
+						var lat = results[0].geometry.location.lat();
+						var lng = results[0].geometry.location.lng();
+
+						infowindow.setContent('<div class="wrap">'
+						+ '<div class="info">'
+						+ '<div class="title"><strong>'
+						+ places[0].name
+						+ '</strong></div><br>'
+						+ '<div class="body">'
+						+ '<div class="desc">'
+						+ '<div class="ellipsis"><strong>주소: </strong>'
+						+ results[0].formatted_address
+						+ '</div>'
+						+ '<div class="jibun ellipsis"><strong>위치정보: </strong>'
+						+ lat + ", " + lng
+						+ '</div><br>'
+						+ '</div>'
+						+ '</div>'
+						+ '</div>' 
+						+ '</div>')
+
+						infowindow.open(map, marker);
+
+						$("#lat").attr('value', lat);
+						$("#lng").attr('value', lng);
+
+					} else {
+						alert('Geocode was not successful for the following reason: '
+							+ status);
+					}
+		        });
+			});
+			
+			
+		}
+			
+			
+		
 		        
-		     // Clear out the old markers.
+					
+		        
+		 /*     // Clear out the old markers.
 		   	markers.forEach(function(marker) {
 		    	marker.setMap(null);
 		    });
 		    markers = [];    
-		       
+		      
 		    var bounds = new google.maps.LatLngBounds();
 		    places.forEach(function(place) {
 		    	if (!place.geometry) {
@@ -327,6 +359,11 @@
 		    	title: place.name,
 		    	position: place.geometry.location
 		    }));
+		   	
+		   	infowindow.open(map, marker);
+		   	
+		   	
+		   	
 		    if (place.geometry.viewport) {
 	              // Only geocodes have viewport.
 	            bounds.union(place.geometry.viewport);
@@ -335,9 +372,7 @@
 	        }
 		    });
 	          map.fitBounds(bounds);
-	        });
-		} 
-		
+	        }); */
 		
 		
 		/* 취소버튼을 눌렀을 때 */
@@ -355,7 +390,6 @@
 			text2 += '</div>';
 			
 			$('#search').html(text2);
-			marker = null;
 			placeSearchBox();
 		}
 		
@@ -378,10 +412,9 @@
 			});
 			
 			$("#cancle").on('click', function(){
-				$("#upResult2").html('');
-				
-				//임시분리
+				marker.setMap(null);
 				cancleTemp();
+				$("#upResult2").html('');
 			});
 		}
 		
@@ -450,6 +483,7 @@
 		<input class="privacy" type="radio" name="privacy" value="비공개" checked="checked">비공개<br>
 	</c:if>
 	<textarea name="photocontent" rows="10" cols="90" style="resize: none">${Photo.photocontent}</textarea>
+	<br>
 	<input type="text" value="${Photo.hashtag}" name="hashtag">
 	<input type="hidden" name="photono" value="${Photo.photono}">
 	<input type="hidden" name="albumno" value="${Photo.albumno}">
@@ -461,7 +495,7 @@
 	<input type="date" name="dateoftravel" value="${Photo.dateoftravel}"> 
 		<c:if test="${Photo.lat != null}">
 			<div id="search"></div>
-			<div id="map" style="width: 650px; height: 350px; display: block;">지도</div>
+			<div id="map" style="width: auto; height: 350px; display: block;">지도</div>
     		<div id="upResult2"></div>
     		<input id="pac-input" class="controls" type="hidden">
     		<div id="infowindow-content"></div>

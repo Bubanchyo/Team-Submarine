@@ -35,7 +35,7 @@
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="./resources/css/index.css" rel="stylesheet">
+<link href="./resources/css/index.css?ver=2" rel="stylesheet">
 
 </head>
 

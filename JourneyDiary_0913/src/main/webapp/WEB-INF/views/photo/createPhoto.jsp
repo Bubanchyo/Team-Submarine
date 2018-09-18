@@ -482,7 +482,7 @@ var infowindow;
 			<div class="form-group">
 			<div id="search"></div>
 			<div class="wrapper">
-				<div id="map" class="form-group" style="width: 650px; height: 350px; display: block;">지도</div>
+				<div id="map" class="form-group" style="width: auto; height: 350px; display: block;">지도</div>
 			</div>
 			<div id="upResult2"></div>
 			<input id="pac-input" class="controls" type="hidden">
@@ -493,10 +493,6 @@ var infowindow;
 	</section>
 	
 	<!-- Call to Action -->
-	<div id="bottomnav" class="container text-center">
-		<button type="submit" class="btn btn-primary">CONFIRM</button>
-	</div>
-
 	</form>	
 
 	<div id="bottomnav" class="container text-center" >
