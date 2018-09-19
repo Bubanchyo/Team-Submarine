@@ -36,7 +36,20 @@
 
 <!-- Custom CSS -->
 <link href="./resources/css/photoList.css?ver=2" rel="stylesheet">
+<script>
+	function ilikeit(photono, likenum){
+		$.ajax({
+			url:"likeit",
+			data: 'photono=' + photono,
+    	    type: 'POST',
+        success: function(result){
+        	$("#likecount" + likenum).text(result);
+      	  }
+		});
+	}
 
+
+</script>
 </head>
 
   <body id="page-top">
@@ -83,7 +96,7 @@
           <h2 class="mb-5">Recent Projects</h2>
         </div>
         <div class="row no-gutters">
-          <c:forEach var="Photo" items="${photoList}">
+          <c:forEach var="Photo" items="${photoList}" varStatus="status">
           <div class="col-lg-6">
             <a class="portfolio-item" href="photoDetails?photono=${Photo.photono}">
               <span class="caption">
@@ -93,8 +106,11 @@
                 </span>
               </span>
               <img class="img-fluid" src="${Photosrc}/${Photo.photoimg}" style="width: 560px; height: 420px; object-fit: cover; overflow:hidden;">
-              <a href="alterPhoto?photono=${Photo.photono}" style="position: absolute; top: 60px; right: 160px; z-index: 100; color: #fff;">ALTER</a>
-			  <a href="deletePhoto?photono=${Photo.photono}" style="position: absolute; top: 60px; right: 80px; z-index: 100; color: white;">DELETE</a>
+              		<a class="cont" href="alterPhoto?photono=${Photo.photono}" style="position: absolute; top: 60px; right: 160px; z-index: 5; color: #fff;">ALTER</a>
+			  		<a class="cont" href="deletePhoto?photono=${Photo.photono}" style="position: absolute; top: 60px; right: 80px; z-index: 5; color: white;">DELETE</a>
+			  		<p class="cont" href="#" style="position: absolute; top: calc(100% - 29%); right: calc(100% - 88%); z-index: 5; color: white;">조회수 ${Photo.hitcount}</p>
+			  		<p id="likecount${status.index}" class="cont" href="#" style="position: absolute; top: calc(100% - 20%); right: calc(100% - 88%); z-index: 5; color: white;">${Photo.likecount}</p>
+			  		<img src="./resources/img/templates/like.png" style="width: 30px; height: 30px; position: absolute; top: calc(100% - 20%); right: calc(100% - 82%); z-index: 5;" onclick="ilikeit('${Photo.photono}', '${status.index}')">
             </a>
           </div>
           </c:forEach>

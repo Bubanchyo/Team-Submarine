@@ -257,6 +257,7 @@ public class PhotoController {
 		
 		PhotoMapper manager = sqlSession.getMapper(PhotoMapper.class);
 		Photo photo = manager.selectOnePhoto(photono);
+		manager.hitCount(photono);
 		
 		model.addAttribute("photo", photo);
 		model.addAttribute("Photosrc", PHOTOLINKPATH);
@@ -305,6 +306,17 @@ public class PhotoController {
 		photoManager.deletePhoto(photono);
 
 		return "redirect:showAlbum";
+	}
+	
+	@RequestMapping(value = "/likeit", method = RequestMethod.POST)
+	@ResponseBody public int likeit(Model model, int photono) {
+		
+		PhotoMapper photoManager = sqlSession.getMapper(PhotoMapper.class);
+
+		photoManager.likeCount(photono);
+		int likecount = photoManager.selectOnePhoto(photono).getLikecount();
+		
+		return likecount;
 	}
 
 }

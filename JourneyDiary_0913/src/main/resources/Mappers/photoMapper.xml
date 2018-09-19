@@ -100,12 +100,24 @@
 			photono = #{photono} and userno = #{userno} and albumno = #{albumno}
 	</update>
 	
+	<!-- hitcount -->
+	<update id="hitCount" parameterType="_int">
+		UPDATE PHOTO SET
+			hitcount = hitcount + 1
+		WHERE photono = #{photono}
+	
+	</update>
+	<!-- likecount -->
+	<update id="likeCount" parameterType="_int">
+		UPDATE PHOTO SET
+			likecount = likecount + 1
+		WHERE photono = #{photono}
+	
+	</update>
 	<!-- 삭제기능 -->
 	<delete id="deletePhoto" parameterType="_int">
 		DELETE FROM PHOTO
 		WHERE photono = #{photono}
-			
-	
 	</delete>
 	
 	<!-- 베스트포토 메인(carousel) -->
@@ -116,14 +128,14 @@
 	</select>
 	
 	<select id="getAlbumPhoto" parameterType="int" resultType="Photo">
-		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel, lat, lng, userno
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel, lat, lng, userno, hitcount, likecount
 		FROM photo
 		WHERE albumno = #{value}	
 		ORDER BY photono
 	</select>
 
 	<select id="getPhotoList" parameterType="int" resultType="Photo">
-		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel, lat, lng, userno
+		SELECT photono, albumno, privacy, photoimg, photocontent, keyword, TO_CHAR(dateoftravel, 'YYYY-MM-DD') dateoftravel, lat, lng, userno, hitcount, likecount
 		FROM photo	
 		ORDER BY photono
 	</select>

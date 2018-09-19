@@ -34,9 +34,10 @@ public class HomeController {
 		model.addAttribute("photoList", photoList);
 		model.addAttribute("bestPhotoList", bestPhoto);
 		
-		return "index";
+		return "NewFile";
+		/*return "index";*/
 	}
-	
+	// :D :3 ;D ;3 >< >ㅅ< 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String goindex(Locale locale, Model model) {
 		

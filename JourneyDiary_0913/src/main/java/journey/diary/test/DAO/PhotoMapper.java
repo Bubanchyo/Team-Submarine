@@ -14,4 +14,6 @@ public interface PhotoMapper {
 	public int alterPhoto(Photo photo);
 	public int deletePhoto(int photono);
 	public List<Photo> getBestPhotos();
+	public int hitCount(int photono);
+	public int likeCount(int photono);
 }
